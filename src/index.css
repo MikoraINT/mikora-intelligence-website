@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Native form controls (iOS select popovers, autofill, scrollbars)
+       render dark instead of flashing white UI on the dark theme */
+    color-scheme: dark;
+  }
+  /* Smooth scrolling only for people who haven't asked for reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  /* Safari 15 and below don't support overflow: clip — fall back to hidden
+     so the horizontal overflow guard on <main> still holds */
+  @supports not (overflow: clip) {
+    main {
+      overflow-x: hidden;
+    }
+  }
+  body {
+    @apply bg-background font-body text-body text-white antialiased;
+  }
+  ::selection {
+    @apply bg-gold/30 text-white;
+  }
+  /* Consistent, visible keyboard focus across the site. Form fields keep
+     their own focus utilities, which take precedence over this base rule. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold/70 ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Range sliders — thin on-system track, 20px gold thumb, 44px hit area */
+  input[type='range'] {
+    @apply h-11 w-full cursor-pointer appearance-none bg-transparent;
+  }
+  input[type='range']::-webkit-slider-runnable-track {
+    @apply h-1.5 rounded-full bg-border;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply -mt-[7px] h-5 w-5 rounded-full border-0 bg-gold transition-colors;
+  }
+  input[type='range']:hover::-webkit-slider-thumb {
+    @apply bg-goldLight;
+  }
+  input[type='range']::-moz-range-track {
+    @apply h-1.5 rounded-full bg-border;
+  }
+  input[type='range']::-moz-range-thumb {
+    @apply h-5 w-5 rounded-full border-0 bg-gold transition-colors;
+  }
+  input[type='range']:hover::-moz-range-thumb {
+    @apply bg-goldLight;
+  }
+  input[type='range']:focus-visible {
+    @apply rounded-full ring-2 ring-gold/60 ring-offset-2 ring-offset-surface;
+  }
+}
