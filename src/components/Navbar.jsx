@@ -9,8 +9,8 @@ const SOLUTIONS = [
 ];
 
 const CAPABILITIES = [
-  { label: 'Lead Scoring', to: '/capabilities/lead-scoring' },
   { label: 'WhatsApp Support', to: '/capabilities/whatsapp-support' },
+  { label: 'Lead Scoring', to: '/capabilities/lead-scoring' },
   { label: 'CRM Sync', to: '/capabilities/crm-sync' },
   { label: 'Ad Spend Tracking', to: '/capabilities/ad-spend-tracking' },
   { label: 'ROI Calculator', to: '/capabilities/roi-calculator' },
@@ -226,7 +226,10 @@ export default function Navbar() {
           <NavLink to="/how-it-works" className={topLink}>
             How It Works
           </NavLink>
-          <DesktopDropdown label="Solutions" items={SOLUTIONS} basePath="/solutions" />
+          <NavLink to="/capabilities/whatsapp-support" className={topLink}>
+            WhatsApp Support
+          </NavLink>
+          <DesktopDropdown label="Industries" items={SOLUTIONS} basePath="/solutions" />
           <DesktopDropdown label="Capabilities" items={CAPABILITIES} basePath="/capabilities" />
           <NavLink to="/pricing" className={topLink}>
             Pricing
@@ -310,7 +313,10 @@ export default function Navbar() {
               <NavLink to="/how-it-works" className={mobileLink}>
                 How It Works
               </NavLink>
-              <MobileGroup label="Solutions" items={SOLUTIONS} />
+              <NavLink to="/capabilities/whatsapp-support" className={mobileLink}>
+                WhatsApp Support
+              </NavLink>
+              <MobileGroup label="Industries" items={SOLUTIONS} />
               <MobileGroup label="Capabilities" items={CAPABILITIES} />
               <NavLink to="/pricing" className={mobileLink}>
                 Pricing

@@ -6,7 +6,7 @@ const DOT_COUNT = 22;
 
 export default function CTABanner({
   heading = 'Ready to see Mikora in action?',
-  subtext = 'Join the companies using Mikora to score, route and close more leads automatically.',
+  subtext = 'Put your expert knowledge on WhatsApp — verified answers, 24/7, with your team in the loop.',
   children,
 }) {
   const reduceMotion = useReducedMotion();
