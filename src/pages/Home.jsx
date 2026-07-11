@@ -5,10 +5,7 @@ import JsonLd from '../components/JsonLd';
 import CTABanner from '../components/CTABanner';
 import { Reveal, Eyebrow } from '../components/ui';
 import {
-  FormIcon,
   TargetIcon,
-  RecordIcon,
-  MailIcon,
   CheckIcon,
   WarnIcon,
   BellIcon,
