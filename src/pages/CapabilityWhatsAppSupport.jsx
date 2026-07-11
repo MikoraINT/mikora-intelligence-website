@@ -46,6 +46,12 @@ export default function CapabilityWhatsAppSupport() {
             'Every question logged, revealing knowledge gaps and training opportunities.',
           mock: <ConversationLogMock />,
         },
+        {
+          title: 'Verified, not just generated',
+          description:
+            'Every answer is backed by documents your named experts signed off — with corrections that outrank the knowledge base the moment they’re confirmed. Accountability no generic chatbot can offer.',
+          mock: <WhatsAppChatMock sourceRef="Signed off · Head Trainer" />,
+        },
       ]}
       outcomes={[
         'Answers in seconds, day or night.',

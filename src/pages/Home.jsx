@@ -5,10 +5,7 @@ import JsonLd from '../components/JsonLd';
 import CTABanner from '../components/CTABanner';
 import { Reveal, Eyebrow } from '../components/ui';
 import {
-  FormIcon,
   TargetIcon,
-  RecordIcon,
-  MailIcon,
   CheckIcon,
   WarnIcon,
   BellIcon,
@@ -24,11 +21,11 @@ import {
 /* ------------------------------------------------------------------ */
 
 const FLOW_STEPS = [
-  { title: 'Lead Captured', Icon: FormIcon },
-  { title: 'Scored by Mikora', Icon: TargetIcon, badge: true },
-  { title: 'CRM Updated', Icon: RecordIcon },
-  { title: 'Team Alerted', Icon: MailIcon },
-  { title: 'Deal Closed', Icon: CheckIcon, success: true },
+  { title: 'Question arrives on WhatsApp', Icon: ChatIcon },
+  { title: 'Matched to your knowledge', Icon: TargetIcon, badge: true },
+  { title: 'Verified answer in seconds', Icon: CheckIcon },
+  { title: 'Human escalation if needed', Icon: BellIcon },
+  { title: 'Logged, learned, improved', Icon: SyncIcon, success: true },
 ];
 
 const STEP_BASE_DELAY = 0.45;
@@ -54,7 +51,7 @@ function DataFlowDiagram() {
         {/* Card header */}
         <div className="mb-7 flex items-center justify-between border-b border-border pb-4">
           <span className="font-mono text-xs tracking-[0.2em] text-muted">
-            LEAD PIPELINE
+            SUPPORT INTELLIGENCE
           </span>
           <span className="flex items-center gap-2 font-mono text-xs text-gold">
             <span className="relative flex h-2 w-2">
@@ -126,10 +123,10 @@ function DataFlowDiagram() {
                   {badge && (
                     <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-background px-2.5 py-1">
                       <span className="font-mono text-sm font-semibold text-gold">
-                        87
+                        Training Manual
                       </span>
-                      <span className="rounded-full border border-hot/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-hot">
-                        HOT
+                      <span className="rounded-full border border-gold/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-gold">
+                        VERIFIED
                       </span>
                     </span>
                   )}
@@ -148,9 +145,9 @@ function DataFlowDiagram() {
 /* ------------------------------------------------------------------ */
 
 const TRUST_INDICATORS = [
-  { highlight: '9,600+', rest: 'Leads Scored' },
-  { highlight: '3', rest: 'Sources Unified' },
-  { highlight: 'Real-Time', rest: 'Sales Alerts' },
+  { highlight: '200+', rest: 'Practitioners Supported' },
+  { highlight: '24/7', rest: 'Instant Answers' },
+  { highlight: 'Expert-Signed', rest: 'Knowledge Base' },
 ];
 
 function Hero() {
@@ -171,15 +168,18 @@ function Hero() {
             {...fadeUp(0)}
             className="break-words font-heading text-[2.75rem] font-bold leading-[1.1] tracking-[-0.03em] text-white md:text-[3.5rem] lg:text-hero"
           >
-            The Operational{' '}
-            <span className="text-gold">Intelligence Layer</span>
+            Expert answers.{' '}
+            <span className="text-gold">On WhatsApp.</span> In seconds.
           </motion.h1>
 
           <motion.p
             {...fadeUp(0.12)}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            Score every lead. Sync every CRM. Alert every sale. In real time.
+            Mikora turns your manuals, protocols and training materials into a
+            24/7 support intelligence your practitioners message like a
+            colleague — verified by your experts, with human escalation when it
+            matters.
           </motion.p>
 
           <motion.div
@@ -270,9 +270,9 @@ function SocialProofStrip() {
 /* ------------------------------------------------------------------ */
 
 const PROBLEMS = [
-  'Slow follow-up loses hot leads within minutes.',
-  "Unscored leads waste your sales team's time.",
-  'Disconnected tools mean no single source of truth.',
+  'Questions arrive at all hours and wait until morning.',
+  'Your best people answer the same questions on repeat.',
+  'Manuals exist, but nobody opens them mid-treatment.',
 ];
 
 function Problem() {
@@ -282,13 +282,13 @@ function Problem() {
         <Reveal>
           <Eyebrow>The Problem</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Your leads are slipping through the gaps
+            Your experts can't be everywhere at once
           </h2>
           <p className="mt-6 max-w-xl text-body text-muted">
-            Most businesses have the traffic. They have the ads. They even have
-            the CRM. What they are missing is the intelligence layer that
-            connects them — scoring every lead the moment it arrives, routing
-            it to the right person, and syncing everything automatically.
+            Your network has questions mid-treatment, mid-install, mid-shift.
+            Your experts have the answers — but they're asleep, in training, or
+            answering the same question for the hundredth time. The manuals
+            exist. Nobody opens them with gloves on.
           </p>
         </Reveal>
 
@@ -315,6 +315,20 @@ function Problem() {
 
 const CAPABILITIES = [
   {
+    title: 'WhatsApp Support',
+    description:
+      'Your entire knowledge base answering on WhatsApp in seconds — verified by your experts, escalated to humans when it matters.',
+    to: '/capabilities/whatsapp-support',
+    Icon: ChatIcon,
+  },
+  {
+    title: 'Website Intelligence',
+    description:
+      'Your website captures and scores visitors as leads automatically.',
+    to: '/capabilities/website-assistant',
+    Icon: BrowserIcon,
+  },
+  {
     title: 'Intelligent Lead Scoring',
     description: 'Every lead scored on fit and intent the moment it arrives.',
     to: '/capabilities/lead-scoring',
@@ -338,20 +352,6 @@ const CAPABILITIES = [
     to: '/capabilities/ad-spend-tracking',
     Icon: ChartIcon,
   },
-  {
-    title: 'Website Intelligence',
-    description:
-      'Your website captures and scores visitors as leads automatically.',
-    to: '/capabilities/website-assistant',
-    Icon: BrowserIcon,
-  },
-  {
-    title: 'WhatsApp Support',
-    description:
-      'Your practitioners get instant answers on WhatsApp, 24 hours a day.',
-    to: '/capabilities/whatsapp-support',
-    Icon: ChatIcon,
-  },
 ];
 
 function Solution() {
@@ -361,11 +361,11 @@ function Solution() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>The Solution</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Mikora connects your entire lead operation
+            One support brain. A full sales engine behind it.
           </h2>
           <p className="mt-5 text-body text-muted">
-            One intelligence layer across every source, every channel, every
-            team member.
+            Mikora answers your network on WhatsApp — and the same platform
+            scores, routes and syncs every lead your marketing produces.
           </p>
         </Reveal>
 
@@ -404,17 +404,19 @@ function Solution() {
 
 const STEPS = [
   {
-    title: 'Connect your stack',
-    description: 'Link your forms, ads, CRM and website in one session.',
-  },
-  {
-    title: 'Mikora scores and routes',
+    title: 'Load your knowledge',
     description:
-      'Every lead gets a fit score, intent score and temperature automatically.',
+      'Manuals, SOPs, protocols, training decks — ingested and structured in days.',
   },
   {
-    title: 'Your team closes',
-    description: 'Alerts fire, CRM updates, nothing falls through.',
+    title: 'Your experts sign it off',
+    description:
+      'Every answer traceable to a named validator and source document.',
+  },
+  {
+    title: 'Your network asks on WhatsApp',
+    description:
+      'Instant answers day and night. Humans stay in the loop for what matters.',
   },
 ];
 
@@ -474,10 +476,10 @@ function HowItWorksPreview() {
 /* ------------------------------------------------------------------ */
 
 const CASE_METRICS = [
+  ['200+', 'Technicians Live'],
+  ['24/7', 'Instant Answers'],
+  ['Seconds', 'To First Response'],
   ['9,600+', 'Leads Scored'],
-  ['3', 'Sources Unified'],
-  ['Real-Time', 'Alerts'],
-  ['Intelligent', 'Routing'],
 ];
 
 function CaseStudyStrip() {
@@ -489,12 +491,14 @@ function CaseStudyStrip() {
             <div className="max-w-2xl">
               <Eyebrow>Case Study</Eyebrow>
               <h2 className="font-heading text-h2 font-bold text-white">
-                See Mikora in action
+                200 practitioners. One WhatsApp number.
               </h2>
               <p className="mt-4 text-body text-muted">
-                A global aesthetic device brand unified three lead sources,
-                scored over 9,600 leads, and gave their sales team real-time
-                intelligence for the first time.
+                A global aesthetic device brand put its training knowledge
+                behind a single WhatsApp number. Technicians get verified
+                answers in seconds, clinical questions escalate to trainers
+                automatically — and the same platform has scored 9,600+ leads
+                for the sales team.
               </p>
             </div>
 
@@ -532,17 +536,17 @@ function CaseStudyStrip() {
 const SOLUTIONS = [
   {
     title: 'Aesthetic Device Companies',
-    description: 'From lead ad to Zoho in seconds.',
+    description: 'Support every technician. Catch every lead.',
     to: '/solutions/aesthetic-devices',
   },
   {
     title: 'Training Academies',
-    description: 'Support every practitioner on WhatsApp, around the clock.',
+    description: 'Keep supporting students long after graduation day.',
     to: '/solutions/training-academies',
   },
   {
     title: 'Marketing Agencies',
-    description: 'White-label intelligence for your clients.',
+    description: 'White-label support intelligence for your clients.',
     to: '/solutions/agencies',
   },
 ];
@@ -552,9 +556,9 @@ function SolutionsStrip() {
     <section className="bg-background">
       <div className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Solutions</Eyebrow>
+          <Eyebrow>Industries</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Built for your industry
+            Built for industries where answers carry weight.
           </h2>
         </Reveal>
 
@@ -592,8 +596,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Mikora Intelligence — The Operational Intelligence Layer"
-        description="Score every lead, sync your CRM and alert your sales team in real time. Mikora is the operational intelligence layer for businesses that cannot afford to miss a lead."
+        title="Mikora Intelligence — Verified WhatsApp Support for Expert Industries"
+        description="Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in."
         canonical="https://mikoraintelligence.com"
       />
       <JsonLd
