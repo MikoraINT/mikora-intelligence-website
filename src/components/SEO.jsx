@@ -3,6 +3,10 @@ import { useLocation } from 'react-router-dom';
 
 const SITE_URL = 'https://mikoraintelligence.com'; // no www
 const DEFAULT_OG_IMAGE = '/og-default.png';
+const DEFAULT_TITLE =
+  'Mikora Intelligence — Verified WhatsApp Support for Expert Industries';
+const DEFAULT_DESCRIPTION =
+  'Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in.';
 
 function upsertMeta(attr, key, content) {
   let tag = document.head.querySelector(`meta[${attr}="${key}"]`);
@@ -36,8 +40,8 @@ function removeCanonical() {
  * be indexed, e.g. the 404).
  */
 export default function SEO({
-  title,
-  description,
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
   canonical,
   ogImage,
   type = 'website',

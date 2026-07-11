@@ -479,10 +479,10 @@ function HowItWorksPreview() {
 /* ------------------------------------------------------------------ */
 
 const CASE_METRICS = [
+  ['200+', 'Technicians Live'],
+  ['24/7', 'Instant Answers'],
+  ['Seconds', 'To First Response'],
   ['9,600+', 'Leads Scored'],
-  ['3', 'Sources Unified'],
-  ['Real-Time', 'Alerts'],
-  ['Intelligent', 'Routing'],
 ];
 
 function CaseStudyStrip() {
@@ -494,12 +494,14 @@ function CaseStudyStrip() {
             <div className="max-w-2xl">
               <Eyebrow>Case Study</Eyebrow>
               <h2 className="font-heading text-h2 font-bold text-white">
-                See Mikora in action
+                200 practitioners. One WhatsApp number.
               </h2>
               <p className="mt-4 text-body text-muted">
-                A global aesthetic device brand unified three lead sources,
-                scored over 9,600 leads, and gave their sales team real-time
-                intelligence for the first time.
+                A global aesthetic device brand put its training knowledge
+                behind a single WhatsApp number. Technicians get verified
+                answers in seconds, clinical questions escalate to trainers
+                automatically — and the same platform has scored 9,600+ leads
+                for the sales team.
               </p>
             </div>
 
@@ -537,17 +539,17 @@ function CaseStudyStrip() {
 const SOLUTIONS = [
   {
     title: 'Aesthetic Device Companies',
-    description: 'From lead ad to Zoho in seconds.',
+    description: 'Support every technician. Catch every lead.',
     to: '/solutions/aesthetic-devices',
   },
   {
     title: 'Training Academies',
-    description: 'Support every practitioner on WhatsApp, around the clock.',
+    description: 'Keep supporting students long after graduation day.',
     to: '/solutions/training-academies',
   },
   {
     title: 'Marketing Agencies',
-    description: 'White-label intelligence for your clients.',
+    description: 'White-label support intelligence for your clients.',
     to: '/solutions/agencies',
   },
 ];
@@ -557,9 +559,9 @@ function SolutionsStrip() {
     <section className="bg-background">
       <div className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Solutions</Eyebrow>
+          <Eyebrow>Industries</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Built for your industry
+            Built for industries where answers carry weight.
           </h2>
         </Reveal>
 
@@ -597,8 +599,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Mikora Intelligence — The Operational Intelligence Layer"
-        description="Score every lead, sync your CRM and alert your sales team in real time. Mikora is the operational intelligence layer for businesses that cannot afford to miss a lead."
+        title="Mikora Intelligence — Verified WhatsApp Support for Expert Industries"
+        description="Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in."
         canonical="https://mikoraintelligence.com"
       />
       <JsonLd
