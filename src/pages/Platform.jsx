@@ -111,6 +111,7 @@ const SOURCES = [
 ];
 
 const OUTPUTS = [
+  { label: 'WhatsApp', line: 'Verified answers, 24/7', Icon: ChatIcon },
   { label: 'CRM', line: 'Zoho synced', Icon: SyncIcon },
   { label: 'Alerts', line: 'Email + WhatsApp notifications', Icon: MailIcon },
   { label: 'Dashboard', line: 'Retool intelligence view', Icon: ChartIcon },
@@ -209,7 +210,7 @@ function StackDiagram() {
                   Mikora Intelligence
                 </p>
                 <p className="mt-2 font-mono text-[11px] tracking-[0.2em] text-goldLight/80">
-                  SCORES · ROUTES · SYNCS
+                  ANSWERS · ESCALATIONS · INSIGHTS
                 </p>
               </motion.div>
 
@@ -217,7 +218,7 @@ function StackDiagram() {
               <Connector />
 
               {/* Outputs */}
-              <div className="grid flex-1 gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 lg:w-[22rem] lg:shrink-0">
                 {OUTPUTS.map(({ label, line, Icon }) => (
                   <div
                     key={label}
