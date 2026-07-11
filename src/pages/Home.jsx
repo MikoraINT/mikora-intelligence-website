@@ -273,9 +273,9 @@ function SocialProofStrip() {
 /* ------------------------------------------------------------------ */
 
 const PROBLEMS = [
-  'Slow follow-up loses hot leads within minutes.',
-  "Unscored leads waste your sales team's time.",
-  'Disconnected tools mean no single source of truth.',
+  'Questions arrive at all hours and wait until morning.',
+  'Your best people answer the same questions on repeat.',
+  'Manuals exist, but nobody opens them mid-treatment.',
 ];
 
 function Problem() {
@@ -285,13 +285,13 @@ function Problem() {
         <Reveal>
           <Eyebrow>The Problem</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Your leads are slipping through the gaps
+            Your experts can't be everywhere at once
           </h2>
           <p className="mt-6 max-w-xl text-body text-muted">
-            Most businesses have the traffic. They have the ads. They even have
-            the CRM. What they are missing is the intelligence layer that
-            connects them — scoring every lead the moment it arrives, routing
-            it to the right person, and syncing everything automatically.
+            Your network has questions mid-treatment, mid-install, mid-shift.
+            Your experts have the answers — but they're asleep, in training, or
+            answering the same question for the hundredth time. The manuals
+            exist. Nobody opens them with gloves on.
           </p>
         </Reveal>
 
@@ -318,6 +318,20 @@ function Problem() {
 
 const CAPABILITIES = [
   {
+    title: 'WhatsApp Support',
+    description:
+      'Your entire knowledge base answering on WhatsApp in seconds — verified by your experts, escalated to humans when it matters.',
+    to: '/capabilities/whatsapp-support',
+    Icon: ChatIcon,
+  },
+  {
+    title: 'Website Intelligence',
+    description:
+      'Your website captures and scores visitors as leads automatically.',
+    to: '/capabilities/website-assistant',
+    Icon: BrowserIcon,
+  },
+  {
     title: 'Intelligent Lead Scoring',
     description: 'Every lead scored on fit and intent the moment it arrives.',
     to: '/capabilities/lead-scoring',
@@ -341,20 +355,6 @@ const CAPABILITIES = [
     to: '/capabilities/ad-spend-tracking',
     Icon: ChartIcon,
   },
-  {
-    title: 'Website Intelligence',
-    description:
-      'Your website captures and scores visitors as leads automatically.',
-    to: '/capabilities/website-assistant',
-    Icon: BrowserIcon,
-  },
-  {
-    title: 'WhatsApp Support',
-    description:
-      'Your practitioners get instant answers on WhatsApp, 24 hours a day.',
-    to: '/capabilities/whatsapp-support',
-    Icon: ChatIcon,
-  },
 ];
 
 function Solution() {
@@ -364,11 +364,11 @@ function Solution() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>The Solution</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Mikora connects your entire lead operation
+            One support brain. A full sales engine behind it.
           </h2>
           <p className="mt-5 text-body text-muted">
-            One intelligence layer across every source, every channel, every
-            team member.
+            Mikora answers your network on WhatsApp — and the same platform
+            scores, routes and syncs every lead your marketing produces.
           </p>
         </Reveal>
 
@@ -407,17 +407,19 @@ function Solution() {
 
 const STEPS = [
   {
-    title: 'Connect your stack',
-    description: 'Link your forms, ads, CRM and website in one session.',
-  },
-  {
-    title: 'Mikora scores and routes',
+    title: 'Load your knowledge',
     description:
-      'Every lead gets a fit score, intent score and temperature automatically.',
+      'Manuals, SOPs, protocols, training decks — ingested and structured in days.',
   },
   {
-    title: 'Your team closes',
-    description: 'Alerts fire, CRM updates, nothing falls through.',
+    title: 'Your experts sign it off',
+    description:
+      'Every answer traceable to a named validator and source document.',
+  },
+  {
+    title: 'Your network asks on WhatsApp',
+    description:
+      'Instant answers day and night. Humans stay in the loop for what matters.',
   },
 ];
 
