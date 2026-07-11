@@ -24,11 +24,11 @@ import {
 /* ------------------------------------------------------------------ */
 
 const FLOW_STEPS = [
-  { title: 'Lead Captured', Icon: FormIcon },
-  { title: 'Scored by Mikora', Icon: TargetIcon, badge: true },
-  { title: 'CRM Updated', Icon: RecordIcon },
-  { title: 'Team Alerted', Icon: MailIcon },
-  { title: 'Deal Closed', Icon: CheckIcon, success: true },
+  { title: 'Question arrives on WhatsApp', Icon: ChatIcon },
+  { title: 'Matched to your knowledge', Icon: TargetIcon, badge: true },
+  { title: 'Verified answer in seconds', Icon: CheckIcon },
+  { title: 'Human escalation if needed', Icon: BellIcon },
+  { title: 'Logged, learned, improved', Icon: SyncIcon, success: true },
 ];
 
 const STEP_BASE_DELAY = 0.45;
@@ -54,7 +54,7 @@ function DataFlowDiagram() {
         {/* Card header */}
         <div className="mb-7 flex items-center justify-between border-b border-border pb-4">
           <span className="font-mono text-xs tracking-[0.2em] text-muted">
-            LEAD PIPELINE
+            SUPPORT INTELLIGENCE
           </span>
           <span className="flex items-center gap-2 font-mono text-xs text-gold">
             <span className="relative flex h-2 w-2">
@@ -126,10 +126,10 @@ function DataFlowDiagram() {
                   {badge && (
                     <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-background px-2.5 py-1">
                       <span className="font-mono text-sm font-semibold text-gold">
-                        87
+                        Training Manual
                       </span>
-                      <span className="rounded-full border border-hot/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-hot">
-                        HOT
+                      <span className="rounded-full border border-gold/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-gold">
+                        VERIFIED
                       </span>
                     </span>
                   )}
@@ -148,9 +148,9 @@ function DataFlowDiagram() {
 /* ------------------------------------------------------------------ */
 
 const TRUST_INDICATORS = [
-  { highlight: '9,600+', rest: 'Leads Scored' },
-  { highlight: '3', rest: 'Sources Unified' },
-  { highlight: 'Real-Time', rest: 'Sales Alerts' },
+  { highlight: '200+', rest: 'Practitioners Supported' },
+  { highlight: '24/7', rest: 'Instant Answers' },
+  { highlight: 'Expert-Signed', rest: 'Knowledge Base' },
 ];
 
 function Hero() {
@@ -171,15 +171,18 @@ function Hero() {
             {...fadeUp(0)}
             className="break-words font-heading text-[2.75rem] font-bold leading-[1.1] tracking-[-0.03em] text-white md:text-[3.5rem] lg:text-hero"
           >
-            The Operational{' '}
-            <span className="text-gold">Intelligence Layer</span>
+            Expert answers.{' '}
+            <span className="text-gold">On WhatsApp.</span> In seconds.
           </motion.h1>
 
           <motion.p
             {...fadeUp(0.12)}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            Score every lead. Sync every CRM. Alert every sale. In real time.
+            Mikora turns your manuals, protocols and training materials into a
+            24/7 support intelligence your practitioners message like a
+            colleague — verified by your experts, with human escalation when it
+            matters.
           </motion.p>
 
           <motion.div
