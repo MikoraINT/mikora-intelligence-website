@@ -238,6 +238,8 @@ function Calculator() {
         }),
       });
       if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'generate_lead', form_name: 'roi_calculator' });
       setGateStatus('success');
     } catch {
       setGateStatus('error');

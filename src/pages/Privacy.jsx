@@ -52,9 +52,10 @@ const SECTIONS = [
     ],
   },
   {
-    heading: 'Cookies',
+    heading: 'Cookies and analytics',
     paragraphs: [
-      'We keep cookies to a minimum. This website does not use third-party advertising cookies. Any cookies used are limited to those necessary for the website to function correctly.',
+      'Beyond the cookies strictly necessary for the website to function, we use Google Analytics 4 (GA4), loaded through Google Tag Manager (GTM), to understand how visitors find and use the site. GA4 sets analytics cookies and identifiers, processed by Google as our analytics provider, so we can measure traffic and improve the site.',
+      'We also plan to use advertising cookies and tags from Google (Google Ads) and LinkedIn to measure the performance of our advertising and reach relevant audiences, and we may add Meta (Facebook and Instagram) for the same purpose in future. Where the law requires your consent for non-essential analytics and advertising cookies, we are introducing a consent tool that lets you accept or reject them; in the meantime you can control or block cookies through your browser settings.',
     ],
   },
   {
