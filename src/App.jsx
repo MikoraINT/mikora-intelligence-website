@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 import GtmPageViews from './components/GtmPageViews';
+import ConsentBanner from './components/ConsentBanner';
 
 // All page components are lazy-loaded so each route ships as its own chunk.
 const Home = lazy(() => import('./pages/Home'));
@@ -96,6 +97,7 @@ export default function App() {
           </ErrorBoundary>
         </main>
         <Footer />
+        <ConsentBanner />
       </div>
     </MotionConfig>
   );

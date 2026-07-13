@@ -3,6 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Consent Mode v2 defaults — MUST stay above the GTM snippet -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'url_passthrough', true);
+      gtag('set', 'ads_data_redaction', true);
+      // Re-apply a stored choice on repeat visits, before GTM evaluates tags.
+      // The version literal below MUST match VERSION in src/lib/consent.js — a
+      // stale-version cookie is ignored so the visitor is re-prompted.
+      try {
+        var m = document.cookie.match(/(?:^|; )mikora_consent=([^;]+)/);
+        if (m) {
+          var c = JSON.parse(decodeURIComponent(m[1]));
+          if (c && c.consent && c.v === 1) gtag('consent', 'update', c.consent);
+        }
+      } catch (e) {}
+    </script>
+    <!-- End Consent Mode v2 defaults -->
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
