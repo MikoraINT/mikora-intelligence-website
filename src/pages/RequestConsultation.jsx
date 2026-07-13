@@ -108,6 +108,8 @@ function ConsultationForm() {
         }),
       });
       if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'consultation_submitted' });
       setStatus('success');
     } catch {
       setStatus('error');
