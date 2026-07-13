@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Wordmark } from './Navbar';
+import { OPEN_CONSENT_EVENT } from '../lib/consent';
 
 const COLUMNS = [
   {
@@ -95,7 +96,16 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-6 text-small text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; 2026 Mikora Intelligence. All rights reserved.</p>
-          <p>Built on Mikora</p>
+          <div className="flex items-center gap-5">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}
+              className="text-small text-muted transition-colors hover:text-gold"
+            >
+              Cookie settings
+            </button>
+            <p>Built on Mikora</p>
+          </div>
         </div>
       </div>
     </footer>
