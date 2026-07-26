@@ -15,6 +15,7 @@ import {
   FormIcon,
   RecordIcon,
   MailIcon,
+  CursorIcon,
 } from '../components/icons';
 
 /* ------------------------------------------------------------------ */
@@ -60,9 +61,16 @@ const DOMAINS = [
   {
     title: 'WhatsApp Support Intelligence',
     description:
-      'Your practitioners and customers get instant, accurate answers on WhatsApp around the clock, powered by your own knowledge base.',
+      'Your team and your customers get instant, accurate answers on WhatsApp around the clock, powered by your own knowledge base.',
     to: '/capabilities/whatsapp-support',
     Icon: ChatIcon,
+  },
+  {
+    title: 'Website Activity Scoring',
+    description:
+      'New: Mikora watches how visitors move through your site — pages viewed, time on site, return visits, campaign source — and blends it with chat engagement into one real-time intent score.',
+    to: '/capabilities/website-activity-scoring',
+    Icon: CursorIcon,
   },
 ];
 
@@ -210,7 +218,7 @@ function StackDiagram() {
                   Mikora Intelligence
                 </p>
                 <p className="mt-2 font-mono text-[11px] tracking-[0.2em] text-goldLight/80">
-                  ANSWERS · ESCALATIONS · INSIGHTS
+                  {'ANSWERS · ESCALATIONS · INSIGHTS'}
                 </p>
               </motion.div>
 
@@ -306,7 +314,7 @@ export default function Platform() {
       <PageHero
         eyebrow="Platform"
         title="Every lead. Every source. One intelligence layer."
-        subtitle="Mikora connects your forms, ads, CRM, and website into a single operational system that scores, routes, and syncs automatically."
+        subtitle="Mikora connects your knowledge base, WhatsApp, forms, ads, CRM and website into a single operational system — answering, scoring, routing and syncing automatically."
       >
         <Link
           to="/request-consultation"

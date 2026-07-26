@@ -8,7 +8,7 @@ import {
   TargetIcon,
   RecordIcon,
   BellIcon,
-  SyncIcon,
+  CheckIcon,
   ChartIcon,
   MegaphoneIcon,
   ChatIcon,
@@ -24,33 +24,33 @@ import {
 
 const STEPS = [
   {
-    heading: 'Your leads arrive',
-    body: 'Whether they come from a Meta Lead Ad, a website form, or a live chat conversation, every lead enters the Mikora intelligence layer automatically.',
+    heading: 'Load your knowledge',
+    body: 'Manuals, SOPs, protocols, training decks, internal docs — wherever your knowledge lives, Mikora ingests and structures it in days.',
     Icon: FormIcon,
   },
   {
-    heading: 'Mikora scores instantly',
-    body: 'Every lead receives a fit score based on who they are, an intent score based on what they want, and a blended temperature — hot, warm, or cold — in under 60 seconds.',
-    Icon: TargetIcon,
+    heading: 'Your experts sign it off',
+    body: 'Named validators approve every knowledge source, so every answer is traceable to a person and a document — and corrections outrank the knowledge base the moment they are confirmed.',
+    Icon: CheckIcon,
   },
   {
-    heading: 'Your CRM updates',
-    body: 'The lead appears in your CRM with full scoring data, source attribution, and recommended action. No manual entry. No delays.',
-    Icon: RecordIcon,
+    heading: 'Your people ask on WhatsApp',
+    body: 'Teams, technicians, franchisees and field staff message Mikora like a colleague — and get a verified answer in seconds, day or night.',
+    Icon: ChatIcon,
   },
   {
-    heading: 'Your team gets alerted',
-    body: 'If the lead is hot, your sales team receives an instant notification with the full lead profile. The right person knows, at the right moment, every time.',
+    heading: 'Humans stay in the loop',
+    body: 'Questions that need judgement escalate to the right expert automatically, with the full conversation attached. Nothing sensitive gets guessed.',
     Icon: BellIcon,
   },
   {
-    heading: 'Mikora keeps syncing',
-    body: 'As your team updates the CRM, Mikora syncs status changes, notes, and follow-up actions back across every connected system.',
-    Icon: SyncIcon,
+    heading: 'Your lead engine runs on the same platform',
+    body: 'Enquiries from ads, forms and website chat are scored on fit and intent, routed to your team, and synced to your CRM automatically.',
+    Icon: TargetIcon,
   },
   {
     heading: 'You see the full picture',
-    body: 'Your Mikora dashboard shows every lead, every score, every campaign, and every penny of ad spend — in one place.',
+    body: 'Questions answered, knowledge gaps, leads, campaigns and spend — one dashboard across your entire operation.',
     Icon: ChartIcon,
   },
 ];
@@ -152,7 +152,7 @@ const FAQ_ITEMS = [
   {
     question: 'How long does it take to set up Mikora?',
     answer:
-      'Most clients are fully connected and scoring leads within one week. The onboarding process covers your lead sources, CRM configuration, scoring rules, and alert setup.',
+      'Most teams go live within weeks: knowledge ingestion, expert sign-off, then WhatsApp connection. Lead sources, CRM configuration and alerts are connected in the same onboarding.',
   },
   {
     question: 'Do I need to replace my existing CRM?',
@@ -160,9 +160,9 @@ const FAQ_ITEMS = [
       'No. Mikora works alongside your existing CRM. It is Zoho-native and supports other CRM integrations.',
   },
   {
-    question: 'What happens if a lead comes in outside business hours?',
+    question: 'What happens outside business hours?',
     answer:
-      'Mikora scores and syncs every lead around the clock. Your team receives alerts immediately and can action them whenever they are ready.',
+      'Mikora answers around the clock — a technician on a night shift or a franchisee on a weekend gets the same verified answer in seconds. Questions that need a human are escalated with full context, and every lead is scored and synced the moment it arrives.',
   },
   {
     question: 'Is my data secure?',
@@ -214,8 +214,8 @@ export default function HowItWorks() {
       />
       <PageHero
         eyebrow="How It Works"
-        title="From lead to closed deal. Automatically."
-        subtitle="Mikora runs silently in the background of your business, scoring every lead, updating your CRM, and alerting your team — without anyone lifting a finger."
+        title="From question to verified answer. Automatically."
+        subtitle="Load your knowledge, have your experts sign it off, and give your whole network instant answers on WhatsApp — while the same platform scores and routes every lead in the background."
       />
       <ProcessTimeline />
       <IntegrationStrip />
