@@ -215,8 +215,13 @@ export default function Navbar() {
     }`;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* The blur lives on this inner wrapper, NOT the fixed header itself:
+          backdrop-filter creates a containing block for fixed descendants,
+          which made the mobile overlay's fixed inset-0 size to the 72px
+          header instead of the viewport (menu links collapsed to 0 height). */}
+      <div className="border-b border-border/40 bg-background/80 backdrop-blur-md">
+        <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
         <Wordmark />
 
         {/* Desktop links */}
@@ -274,7 +279,8 @@ export default function Navbar() {
             <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
           </svg>
         </button>
-      </nav>
+        </nav>
+      </div>
 
       {/* Mobile overlay — slides in from the right */}
       <AnimatePresence>

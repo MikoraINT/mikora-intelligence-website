@@ -125,8 +125,13 @@ function IntegrationStrip() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Integrations</Eyebrow>
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
-            Works with the tools you already use
+            Custom-built around your stack
           </h2>
+          <p className="mt-5 text-body text-muted">
+            Every Mikora deployment is built for your business — so it works
+            with whatever you run. No fixed integration list, no rip and
+            replace. These are some of the tools already connected.
+          </p>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4 xl:grid-cols-8">

@@ -425,11 +425,14 @@ function Solution() {
 /* ------------------------------------------------------------------ */
 
 const WHO_ITS_FOR = [
+  'Aesthetics & beauty',
+  'Construction & trades',
+  'Healthcare & the NHS',
   'Device manufacturers',
   'Training academies',
   'Franchise networks',
-  'Field service & trades',
-  'Healthcare & clinics',
+  'Field service & engineering',
+  'Logistics & fleet',
   'SaaS & support teams',
   'Agencies',
 ];
@@ -444,8 +447,9 @@ function WhoItsForStrip() {
             Built for teams that run on trained people
           </h2>
           <p className="mt-4 text-body text-muted">
-            If your business depends on people doing the job right — wherever
-            they are — Mikora fits.
+            From aesthetics to construction to the NHS — if your business
+            depends on people doing the job right, Mikora fits. Every
+            deployment is custom built around how you work.
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -632,6 +636,12 @@ function SolutionsStrip() {
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
             Built for industries where answers carry weight.
           </h2>
+          <p className="mt-5 text-body text-muted">
+            Deep-dive pages for the industries we've served longest. Don't see
+            yours? Every Mikora deployment is custom built — from aesthetics
+            to construction to healthcare, if your work runs on knowledge, it
+            fits.
+          </p>
         </Reveal>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
