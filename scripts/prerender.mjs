@@ -92,10 +92,16 @@ for (const route of routes) {
       .replace('</head>', `    ${headTags(meta, route)}\n  </head>`)
       .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
 
-    const outDir =
-      route === '/' ? DIST : path.join(DIST, ...route.split('/').filter(Boolean));
-    await mkdir(outDir, { recursive: true });
-    await writeFile(path.join(outDir, 'index.html'), page);
+    // Write <route>.html (not <route>/index.html): Cloudflare Pages serves
+    // foo.html at /foo with a direct 200, whereas foo/index.html triggers a
+    // 308 to /foo/ — which would add a redirect hop to every crawl and
+    // mismatch the no-trailing-slash canonical URLs.
+    const outFile =
+      route === '/'
+        ? path.join(DIST, 'index.html')
+        : path.join(DIST, ...route.split('/').filter(Boolean)) + '.html';
+    await mkdir(path.dirname(outFile), { recursive: true });
+    await writeFile(outFile, page);
     console.log(`prerendered ${route} (${(page.length / 1024).toFixed(0)} kB)`);
   } catch (err) {
     failures += 1;
