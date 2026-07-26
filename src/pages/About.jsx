@@ -47,9 +47,9 @@ export default function About() {
           <Reveal delay={0.12}>
             <p className="text-body leading-relaxed text-muted">
               It worked so well we productised it. Today Mikora runs the same
-              intelligence for businesses that live and die by their lead flow
-              — aesthetic device companies, training academies, and the
-              agencies that serve them. We do not talk about artificial
+              intelligence for businesses that run on trained people and
+              proven processes — manufacturers, training academies, franchise
+              networks, and the agencies that serve them. We do not talk about artificial
               intelligence. We talk about outcomes: faster follow-up,
               better-qualified leads, and a sales team that knows exactly who
               to call.

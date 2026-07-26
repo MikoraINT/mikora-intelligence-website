@@ -4,9 +4,32 @@ import { useLocation } from 'react-router-dom';
 const SITE_URL = 'https://mikoraintelligence.com'; // no www
 const DEFAULT_OG_IMAGE = '/og-default.png';
 const DEFAULT_TITLE =
-  'Mikora Intelligence — Verified WhatsApp Support for Expert Industries';
+  'Mikora Intelligence — Verified WhatsApp Support for Knowledge-Driven Teams';
 const DEFAULT_DESCRIPTION =
-  'Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in.';
+  'Mikora turns your manuals, SOPs and training into instant, expert-verified answers on WhatsApp — 24/7 support for teams, technicians, franchisees and field staff, with human escalation built in.';
+
+// ---------------------------------------------------------------- SSR ----
+// During prerendering (vite build --ssr) there is no document to mutate, so
+// the component records its resolved meta here instead; scripts/prerender.mjs
+// reads it after each route render and writes real <head> tags into the
+// static HTML. Renders are sequential, so one slot is enough.
+const ssrMeta = { current: null };
+
+export function beginSsrMetaCapture() {
+  ssrMeta.current = {};
+  return ssrMeta;
+}
+
+function resolveUrlAndImage({ canonical, ogImage, pathname }) {
+  const url = canonical || `${SITE_URL}${pathname}`;
+  const image = ogImage
+    ? ogImage.startsWith('http')
+      ? ogImage
+      : `${SITE_URL}${ogImage}`
+    : `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+  return { url, image };
+}
+// --------------------------------------------------------------------------
 
 function upsertMeta(attr, key, content) {
   let tag = document.head.querySelector(`meta[${attr}="${key}"]`);
@@ -49,13 +72,20 @@ export default function SEO({
 }) {
   const { pathname } = useLocation();
 
+  if (import.meta.env.SSR && ssrMeta.current) {
+    const { url, image } = resolveUrlAndImage({ canonical, ogImage, pathname });
+    Object.assign(ssrMeta.current, {
+      title,
+      description,
+      url,
+      image,
+      type,
+      noindex,
+    });
+  }
+
   useEffect(() => {
-    const url = canonical || `${SITE_URL}${pathname}`;
-    const image = ogImage
-      ? ogImage.startsWith('http')
-        ? ogImage
-        : `${SITE_URL}${ogImage}`
-      : `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+    const { url, image } = resolveUrlAndImage({ canonical, ogImage, pathname });
 
     document.title = title;
     upsertMeta('name', 'description', description);

@@ -14,6 +14,7 @@ import {
   BrowserIcon,
   ChatIcon,
   ArrowIcon,
+  CursorIcon,
 } from '../components/icons';
 
 /* ------------------------------------------------------------------ */
@@ -176,10 +177,9 @@ function Hero() {
             {...fadeUp(0.12)}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            Mikora turns your manuals, protocols and training materials into a
-            24/7 support intelligence your practitioners message like a
-            colleague — verified by your experts, with human escalation when it
-            matters.
+            Mikora turns your training, protocols and internal know-how into
+            instant, expert-verified answers on WhatsApp — for your whole
+            team, network or customer base, with human escalation built in.
           </motion.p>
 
           <motion.div
@@ -234,11 +234,11 @@ function Hero() {
 /* ------------------------------------------------------------------ */
 
 const CLIENT_TYPES = [
-  'Aesthetic Device Brand',
+  'Device Manufacturer',
   'Training Academy',
   'Marketing Agency',
   'Franchise Network',
-  'Device Distributor',
+  'Equipment Distributor',
 ];
 
 function SocialProofStrip() {
@@ -272,7 +272,7 @@ function SocialProofStrip() {
 const PROBLEMS = [
   'Questions arrive at all hours and wait until morning.',
   'Your best people answer the same questions on repeat.',
-  'Manuals exist, but nobody opens them mid-treatment.',
+  'Manuals exist, but nobody opens them mid-job.',
 ];
 
 function Problem() {
@@ -285,10 +285,11 @@ function Problem() {
             Your experts can't be everywhere at once
           </h2>
           <p className="mt-6 max-w-xl text-body text-muted">
-            Your network has questions mid-treatment, mid-install, mid-shift.
-            Your experts have the answers — but they're asleep, in training, or
-            answering the same question for the hundredth time. The manuals
-            exist. Nobody opens them with gloves on.
+            Your people have questions mid-job, mid-install, mid-shift. Your
+            experts have the answers — but they're asleep, in training, or
+            answering the same question for the hundredth time. The knowledge
+            exists — in manuals, SOPs, training decks and senior heads. Nobody
+            can reach it with their hands full.
           </p>
         </Reveal>
 
@@ -327,6 +328,14 @@ const CAPABILITIES = [
       'Your website captures and scores visitors as leads automatically.',
     to: '/capabilities/website-assistant',
     Icon: BrowserIcon,
+  },
+  {
+    title: 'Website Activity Scoring',
+    description:
+      "Know who's serious before they say a word — visitor behaviour and chat engagement blended into one real-time intent score.",
+    to: '/capabilities/website-activity-scoring',
+    Icon: CursorIcon,
+    isNew: true,
   },
   {
     title: 'Intelligent Lead Scoring',
@@ -370,8 +379,16 @@ function Solution() {
         </Reveal>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {CAPABILITIES.map(({ title, description, to, Icon }, i) => (
-            <Reveal key={to} delay={(i % 3) * 0.08}>
+          {CAPABILITIES.map(({ title, description, to, Icon, isNew }, i) => (
+            <Reveal
+              key={to}
+              delay={(i % 3) * 0.08}
+              className={
+                i === CAPABILITIES.length - 1 && CAPABILITIES.length % 3 === 1
+                  ? 'lg:col-start-2'
+                  : undefined
+              }
+            >
               <Link
                 to={to}
                 className="group flex h-full flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_16px_40px_-16px_rgba(200,169,106,0.25)]"
@@ -379,8 +396,13 @@ function Solution() {
                 <span className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gold/30 bg-gold/10 text-gold">
                   <Icon />
                 </span>
-                <h3 className="font-heading text-h3 font-bold text-white">
+                <h3 className="flex items-center gap-2.5 font-heading text-h3 font-bold text-white">
                   {title}
+                  {isNew && (
+                    <span className="rounded-full border border-gold/50 bg-gold/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-gold">
+                      NEW
+                    </span>
+                  )}
                 </h3>
                 <p className="mt-2.5 flex-1 text-small text-muted">
                   {description}
@@ -393,6 +415,60 @@ function Solution() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Section 4b — Who it's for strip                                     */
+/* ------------------------------------------------------------------ */
+
+const WHO_ITS_FOR = [
+  'Aesthetics & beauty',
+  'Construction & trades',
+  'Healthcare & the NHS',
+  'Device manufacturers',
+  'Training academies',
+  'Franchise networks',
+  'Field service & engineering',
+  'Logistics & fleet',
+  'SaaS & support teams',
+  'Agencies',
+];
+
+function WhoItsForStrip() {
+  return (
+    <section className="border-y border-border bg-surface">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <Eyebrow>Who It's For</Eyebrow>
+          <h2 className="font-heading text-h2 font-bold text-white">
+            Built for teams that run on trained people
+          </h2>
+          <p className="mt-4 text-body text-muted">
+            From aesthetics to construction to the NHS — if your business
+            depends on people doing the job right, Mikora fits. Every
+            deployment is custom built around how you work.
+          </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-4">
+            {WHO_ITS_FOR.map((label, i) => (
+              <li key={label} className="flex items-center gap-x-3">
+                {i > 0 && (
+                  <span
+                    className="h-1 w-1 rounded-full bg-gold/60"
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="font-heading text-base font-semibold tracking-wide text-white/80">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
@@ -494,11 +570,11 @@ function CaseStudyStrip() {
                 200 practitioners. One WhatsApp number.
               </h2>
               <p className="mt-4 text-body text-muted">
-                A global aesthetic device brand put its training knowledge
-                behind a single WhatsApp number. Technicians get verified
-                answers in seconds, clinical questions escalate to trainers
-                automatically — and the same platform has scored 9,600+ leads
-                for the sales team.
+                Proof from one industry: a global aesthetic device brand put
+                its training knowledge behind a single WhatsApp number.
+                Technicians get verified answers in seconds, clinical
+                questions escalate to trainers automatically — and the same
+                platform has scored 9,600+ leads for the sales team.
               </p>
             </div>
 
@@ -560,6 +636,12 @@ function SolutionsStrip() {
           <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
             Built for industries where answers carry weight.
           </h2>
+          <p className="mt-5 text-body text-muted">
+            Deep-dive pages for the industries we've served longest. Don't see
+            yours? Every Mikora deployment is custom built — from aesthetics
+            to construction to healthcare, if your work runs on knowledge, it
+            fits.
+          </p>
         </Reveal>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
@@ -596,8 +678,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Mikora Intelligence — Verified WhatsApp Support for Expert Industries"
-        description="Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in."
+        title="Mikora Intelligence — Verified WhatsApp Support for Knowledge-Driven Teams"
+        description="Mikora turns your manuals, SOPs and training into instant, expert-verified answers on WhatsApp — 24/7 support for teams, technicians, franchisees and field staff, with human escalation built in."
         canonical="https://mikoraintelligence.com"
       />
       <JsonLd
@@ -613,6 +695,7 @@ export default function Home() {
       <SocialProofStrip />
       <Problem />
       <Solution />
+      <WhoItsForStrip />
       <HowItWorksPreview />
       <CaseStudyStrip />
       <SolutionsStrip />

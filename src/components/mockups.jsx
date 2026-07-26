@@ -86,7 +86,7 @@ export function LeadScoreMock({ source = 'Meta Lead Ad' }) {
         </div>
       </div>
       <div className="mt-5 space-y-2.5">
-        <KV k="Device interest" v="PlasmaPen" />
+        <KV k="Product interest" v="Flagship line" />
         <KV k="Timeline" v="Immediately" />
       </div>
     </MockShell>
@@ -97,7 +97,7 @@ export function FitMock() {
   return (
     <MockShell label="FIT SCORE" meta="who they are">
       <div className="space-y-2.5">
-        <KV k="Owns a clinic" v="+25" />
+        <KV k="Owns the business" v="+25" />
         <KV k="Established business" v="+20" />
         <KV k="Profile complete" v="+15" />
         <KV k="UK based" v="+10" />
@@ -115,7 +115,7 @@ export function IntentMock() {
       <div className="space-y-2.5">
         <KV k="Buying immediately" v="+40" />
         <KV k="Finance ready" v="+25" />
-        <KV k="Device interest: PlasmaPen" v="+15" />
+        <KV k="Product interest: flagship" v="+15" />
         <KV k="Engaged with pricing" v="+10" />
       </div>
       <div className="mt-5">
@@ -134,7 +134,7 @@ export function ScoreBreakdownMock() {
         <Bar label="BLENDED" value={81} tone="hot" />
       </div>
       <div className="mt-5 flex flex-wrap gap-2">
-        <Chip>Owns clinic</Chip>
+        <Chip>Business owner</Chip>
         <Chip>Buying this month</Chip>
         <Chip>Finance ready</Chip>
       </div>
@@ -162,7 +162,7 @@ export function AlertMock() {
       </div>
       <div className="mt-5 space-y-2.5">
         <KV k="Source" v="Meta Lead Ad" />
-        <KV k="Device interest" v="PlasmaPen" />
+        <KV k="Product interest" v="Flagship line" />
         <KV k="Timeline" v="Immediately" />
       </div>
       <p className="mt-5 border-t border-border pt-4 text-small text-muted">
@@ -264,7 +264,7 @@ export function PipelineMock({ sources = ['Meta Ads', 'Website', 'Live Chat'] })
                 Sarah Mitchell
               </p>
               <p className="font-mono text-xs text-muted">
-                s.mitchell@clinic.co.uk
+                s.mitchell@company.co.uk
               </p>
             </div>
           </div>
@@ -358,14 +358,14 @@ export function WhatsAppChatMock({ sourceRef }) {
       <div className="space-y-3">
         <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm border border-border bg-background px-4 py-3">
           <p className="text-small text-white/90">
-            What setting should I use for upper eyelid on the Fusion 8?
+            What clearance does the V240 need for a wall install?
           </p>
         </div>
         <div className="max-w-[90%] rounded-2xl rounded-bl-sm border border-gold/30 bg-gold/10 px-4 py-3">
           <p className="text-small text-white/90">
-            Start on Level 2 for the upper eyelid. Keep spots 1mm apart, stay
-            clear of the lash line, and complete no more than two passes in a
-            single session.
+            Minimum 150mm clearance on all sides for the V240 — 300mm above
+            if mounted under a shelf. Fix both anchor points into solid
+            masonry, never plasterboard alone.
           </p>
           {sourceRef && (
             <div className="mt-2.5">
@@ -386,7 +386,7 @@ export function EscalationMock() {
     <MockShell label="ESCALATION" meta="21:07">
       <div className="rounded-lg border border-border bg-background px-4 py-3">
         <p className="text-small text-white/90">
-          Client showing prolonged redness after treatment — advice?
+          Customer reporting an intermittent fault after install — advice?
         </p>
       </div>
       <div className="mt-3 flex items-center gap-2">
@@ -405,9 +405,9 @@ export function EscalationMock() {
 
 export function ConversationLogMock() {
   const rows = [
-    ['Fusion 8 — upper eyelid settings', '21:04'],
-    ['Aftercare — plasma crusting day 3', '19:48'],
-    ['Consent form — patch test query', '18:15'],
+    ['V240 — wall install clearance', '21:04'],
+    ['Maintenance — quarterly service checklist', '19:48'],
+    ['Warranty — registration query', '18:15'],
   ];
   return (
     <MockShell label="CONVERSATION LOG" meta="this week">
@@ -566,14 +566,14 @@ export function SEOMock() {
     <MockShell label="SEARCH PERFORMANCE" meta="day one">
       <div className="rounded-lg border border-border bg-background px-4 py-3.5">
         <p className="text-small font-medium text-gold">
-          Your Brand — Professional Aesthetic Devices
+          Your Brand — Professional Equipment & Training
         </p>
         <p className="mt-0.5 font-mono text-[11px] text-success">
           yourbrand.com
         </p>
         <p className="mt-1.5 text-small text-muted">
-          Clinically proven devices with nationwide training and support.
-          Book a consultation today.
+          Proven equipment with nationwide training and support. Book a
+          consultation today.
         </p>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -640,7 +640,7 @@ export function WebChatMock() {
         </div>
         <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm border border-border bg-background px-4 py-3">
           <p className="font-mono text-small text-white/90">
-            sarah@clinic.co.uk
+            sarah@company.co.uk
           </p>
         </div>
       </div>

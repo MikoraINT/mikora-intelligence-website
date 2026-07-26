@@ -32,7 +32,7 @@ export default function Blog() {
     <>
       <SEO
         title="The Mikora Journal — Intelligence for operators"
-        description="Practical thinking on lead operations, pipeline intelligence, and building businesses that never miss a lead."
+        description="Practical thinking on support intelligence, lead operations, and building businesses that run on knowledge."
         canonical="https://mikoraintelligence.com/blog"
       />
       <PageHero

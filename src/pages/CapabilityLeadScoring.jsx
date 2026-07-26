@@ -29,7 +29,7 @@ export default function CapabilityLeadScoring() {
         {
           title: 'Fit scoring — who they are',
           description:
-            'Business type, clinic ownership, location, and profile completeness.',
+            'Business type, ownership, location, and profile completeness.',
           mock: <FitMock />,
         },
         {

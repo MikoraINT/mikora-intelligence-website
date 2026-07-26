@@ -14,6 +14,7 @@ import {
   CalculatorIcon,
   CodeIcon,
   BookIcon,
+  CursorIcon,
 } from './icons';
 
 const RELATED_ICONS = {
@@ -22,6 +23,7 @@ const RELATED_ICONS = {
   'CRM Sync': SyncIcon,
   'WhatsApp Support': ChatIcon,
   'Website Assistant': BrowserIcon,
+  'Website Activity Scoring': CursorIcon,
   'Ad Spend Tracking': ChartIcon,
   'ROI Calculator': CalculatorIcon,
   'Website Build': CodeIcon,

@@ -186,14 +186,14 @@ export default function CaseStudyPlasmaPen() {
   return (
     <>
       <SEO
-        title="How a global aesthetic device brand unified its entire lead operation — Mikora Intelligence"
-        description="Three lead sources. One intelligence layer. Real-time scoring, routing, and sales alerts — live within weeks."
+        title="How a global aesthetic device brand unified its entire lead operation — Mikora Case Study"
+        description="One industry's proof of the Mikora platform: three lead sources, one intelligence layer, real-time scoring, routing and sales alerts — live within weeks."
         canonical="https://mikoraintelligence.com/case-study/plasmapen"
       />
       <PageHero
-        eyebrow="Case Study"
+        eyebrow="Case Study · Aesthetic Devices"
         title="How a global aesthetic device brand unified its entire lead operation"
-        subtitle="Three lead sources. One intelligence layer. Real-time scoring, routing, and sales alerts — live within weeks."
+        subtitle="Three lead sources. One intelligence layer. Real-time scoring, routing, and sales alerts — live within weeks. One industry's story; the same platform runs anywhere expert knowledge and lead flow matter."
       />
       <ClientContext />
       <ProblemSection
