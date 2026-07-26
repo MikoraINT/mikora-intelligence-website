@@ -35,11 +35,28 @@ const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      // Anchor navigation (e.g. /#industries). The target route is
+      // lazy-loaded, so the element may not exist yet — retry briefly.
+      const id = hash.slice(1);
+      let attempts = 0;
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        } else if (attempts < 40) {
+          attempts += 1;
+          requestAnimationFrame(tryScroll);
+        }
+      };
+      tryScroll();
+      return;
+    }
     // Instant, so CSS smooth-scrolling doesn't animate long jumps between pages
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 

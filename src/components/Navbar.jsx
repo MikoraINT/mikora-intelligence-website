@@ -6,6 +6,8 @@ const SOLUTIONS = [
   { label: 'Aesthetic Device Companies', to: '/solutions/aesthetic-devices' },
   { label: 'Training Academies', to: '/solutions/training-academies' },
   { label: 'Marketing Agencies', to: '/solutions/agencies' },
+  // Anchor on the homepage who-it's-for strip — the full breadth list
+  { label: 'See all industries →', to: '/#industries' },
 ];
 
 const CAPABILITIES = [
