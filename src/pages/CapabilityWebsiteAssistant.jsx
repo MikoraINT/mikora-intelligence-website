@@ -53,9 +53,12 @@ export default function CapabilityWebsiteAssistant() {
         'Full conversation context for your sales team.',
       ]}
       related={[
+        {
+          title: 'Website Activity Scoring',
+          to: '/capabilities/website-activity-scoring',
+        },
         { title: 'Lead Scoring', to: '/capabilities/lead-scoring' },
         { title: 'Sales Alerts', to: '/capabilities/sales-alerts' },
-        { title: 'Website Build', to: '/capabilities/website-build' },
       ]}
     />
   );

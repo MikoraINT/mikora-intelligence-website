@@ -28,6 +28,7 @@ const CapabilityAdSpendTracking = lazy(() => import('./pages/CapabilityAdSpendTr
 const CapabilityROICalculator = lazy(() => import('./pages/CapabilityROICalculator'));
 const CapabilitySalesAlerts = lazy(() => import('./pages/CapabilitySalesAlerts'));
 const CapabilityWebsiteAssistant = lazy(() => import('./pages/CapabilityWebsiteAssistant'));
+const CapabilityWebsiteActivityScoring = lazy(() => import('./pages/CapabilityWebsiteActivityScoring'));
 const CapabilityWebsiteBuild = lazy(() => import('./pages/CapabilityWebsiteBuild'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
@@ -88,6 +89,7 @@ export default function App() {
                 <Route path="/capabilities/roi-calculator" element={<CapabilityROICalculator />} />
                 <Route path="/capabilities/sales-alerts" element={<CapabilitySalesAlerts />} />
                 <Route path="/capabilities/website-assistant" element={<CapabilityWebsiteAssistant />} />
+                <Route path="/capabilities/website-activity-scoring" element={<CapabilityWebsiteActivityScoring />} />
                 <Route path="/capabilities/website-build" element={<CapabilityWebsiteBuild />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
