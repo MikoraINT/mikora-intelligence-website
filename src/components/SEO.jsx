@@ -4,9 +4,9 @@ import { useLocation } from 'react-router-dom';
 const SITE_URL = 'https://mikoraintelligence.com'; // no www
 const DEFAULT_OG_IMAGE = '/og-default.png';
 const DEFAULT_TITLE =
-  'Mikora Intelligence — Verified WhatsApp Support for Expert Industries';
+  'Mikora Intelligence — Verified WhatsApp Support for Knowledge-Driven Teams';
 const DEFAULT_DESCRIPTION =
-  'Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in.';
+  'Mikora turns your manuals, SOPs and training into instant, expert-verified answers on WhatsApp — 24/7 support for teams, technicians, franchisees and field staff, with human escalation built in.';
 
 function upsertMeta(attr, key, content) {
   let tag = document.head.querySelector(`meta[${attr}="${key}"]`);

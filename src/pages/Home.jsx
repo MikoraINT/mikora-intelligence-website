@@ -668,8 +668,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Mikora Intelligence — Verified WhatsApp Support for Expert Industries"
-        description="Mikora turns your manuals and protocols into instant, expert-verified answers on WhatsApp — 24/7 support for practitioners, technicians and field teams, with human escalation built in."
+        title="Mikora Intelligence — Verified WhatsApp Support for Knowledge-Driven Teams"
+        description="Mikora turns your manuals, SOPs and training into instant, expert-verified answers on WhatsApp — 24/7 support for teams, technicians, franchisees and field staff, with human escalation built in."
         canonical="https://mikoraintelligence.com"
       />
       <JsonLd

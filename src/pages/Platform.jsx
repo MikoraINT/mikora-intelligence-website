@@ -307,8 +307,8 @@ export default function Platform() {
   return (
     <>
       <SEO
-        title="The Mikora Intelligence Platform — Lead Scoring CRM Sync and Sales Alerts"
-        description="One operational intelligence layer that scores every lead, syncs your CRM automatically, and alerts your sales team in real time."
+        title="The Mikora Intelligence Platform — Support Intelligence, Lead Scoring and CRM Sync"
+        description="One operational intelligence layer: verified WhatsApp answers from your own knowledge base, plus lead scoring, real-time alerts and CRM sync for your whole operation."
         canonical="https://mikoraintelligence.com/platform"
       />
       <PageHero

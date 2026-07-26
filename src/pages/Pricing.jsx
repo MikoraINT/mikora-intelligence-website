@@ -278,7 +278,7 @@ export default function Pricing() {
     <>
       <SEO
         title="Mikora Intelligence Pricing — Plans from £800 per month"
-        description="Transparent pricing for intelligent lead scoring, CRM sync, sales alerts, and website builds. Plans from £800 per month with no hidden fees."
+        description="Transparent pricing for verified WhatsApp support, lead scoring, CRM sync, sales alerts, and website builds. Plans from £800 per month with no hidden fees."
         canonical="https://mikoraintelligence.com/pricing"
       />
       <JsonLd

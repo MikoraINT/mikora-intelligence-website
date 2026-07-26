@@ -197,8 +197,8 @@ export default function HowItWorks() {
   return (
     <>
       <SEO
-        title="How Mikora Works — Intelligent Lead Scoring and CRM Sync"
-        description="See exactly how Mikora scores every lead, syncs your CRM, and alerts your sales team automatically from the moment a lead arrives."
+        title="How Mikora Works — From Your Knowledge to Verified Answers on WhatsApp"
+        description="Load your manuals, SOPs and training. Your experts sign it off. Your whole network gets instant, verified answers on WhatsApp — while Mikora scores and routes every lead in the background."
         canonical="https://mikoraintelligence.com/how-it-works"
       />
       <JsonLd
