@@ -14,6 +14,7 @@ import {
   BrowserIcon,
   ChatIcon,
   ArrowIcon,
+  CursorIcon,
 } from '../components/icons';
 
 /* ------------------------------------------------------------------ */
@@ -329,6 +330,14 @@ const CAPABILITIES = [
     Icon: BrowserIcon,
   },
   {
+    title: 'Website Activity Scoring',
+    description:
+      "Know who's serious before they say a word — visitor behaviour and chat engagement blended into one real-time intent score.",
+    to: '/capabilities/website-activity-scoring',
+    Icon: CursorIcon,
+    isNew: true,
+  },
+  {
     title: 'Intelligent Lead Scoring',
     description: 'Every lead scored on fit and intent the moment it arrives.',
     to: '/capabilities/lead-scoring',
@@ -370,8 +379,16 @@ function Solution() {
         </Reveal>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {CAPABILITIES.map(({ title, description, to, Icon }, i) => (
-            <Reveal key={to} delay={(i % 3) * 0.08}>
+          {CAPABILITIES.map(({ title, description, to, Icon, isNew }, i) => (
+            <Reveal
+              key={to}
+              delay={(i % 3) * 0.08}
+              className={
+                i === CAPABILITIES.length - 1 && CAPABILITIES.length % 3 === 1
+                  ? 'lg:col-start-2'
+                  : undefined
+              }
+            >
               <Link
                 to={to}
                 className="group flex h-full flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_16px_40px_-16px_rgba(200,169,106,0.25)]"
@@ -379,8 +396,13 @@ function Solution() {
                 <span className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gold/30 bg-gold/10 text-gold">
                   <Icon />
                 </span>
-                <h3 className="font-heading text-h3 font-bold text-white">
+                <h3 className="flex items-center gap-2.5 font-heading text-h3 font-bold text-white">
                   {title}
+                  {isNew && (
+                    <span className="rounded-full border border-gold/50 bg-gold/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-gold">
+                      NEW
+                    </span>
+                  )}
                 </h3>
                 <p className="mt-2.5 flex-1 text-small text-muted">
                   {description}
@@ -393,6 +415,56 @@ function Solution() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Section 4b — Who it's for strip                                     */
+/* ------------------------------------------------------------------ */
+
+const WHO_ITS_FOR = [
+  'Device manufacturers',
+  'Training academies',
+  'Franchise networks',
+  'Field service & trades',
+  'Healthcare & clinics',
+  'SaaS & support teams',
+  'Agencies',
+];
+
+function WhoItsForStrip() {
+  return (
+    <section className="border-y border-border bg-surface">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <Eyebrow>Who It's For</Eyebrow>
+          <h2 className="font-heading text-h2 font-bold text-white">
+            Built for teams that run on trained people
+          </h2>
+          <p className="mt-4 text-body text-muted">
+            If your business depends on people doing the job right — wherever
+            they are — Mikora fits.
+          </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-4">
+            {WHO_ITS_FOR.map((label, i) => (
+              <li key={label} className="flex items-center gap-x-3">
+                {i > 0 && (
+                  <span
+                    className="h-1 w-1 rounded-full bg-gold/60"
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="font-heading text-base font-semibold tracking-wide text-white/80">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
@@ -494,11 +566,11 @@ function CaseStudyStrip() {
                 200 practitioners. One WhatsApp number.
               </h2>
               <p className="mt-4 text-body text-muted">
-                A global aesthetic device brand put its training knowledge
-                behind a single WhatsApp number. Technicians get verified
-                answers in seconds, clinical questions escalate to trainers
-                automatically — and the same platform has scored 9,600+ leads
-                for the sales team.
+                Proof from one industry: a global aesthetic device brand put
+                its training knowledge behind a single WhatsApp number.
+                Technicians get verified answers in seconds, clinical
+                questions escalate to trainers automatically — and the same
+                platform has scored 9,600+ leads for the sales team.
               </p>
             </div>
 
@@ -613,6 +685,7 @@ export default function Home() {
       <SocialProofStrip />
       <Problem />
       <Solution />
+      <WhoItsForStrip />
       <HowItWorksPreview />
       <CaseStudyStrip />
       <SolutionsStrip />
