@@ -439,7 +439,9 @@ const WHO_ITS_FOR = [
 
 function WhoItsForStrip() {
   return (
-    <section className="border-y border-border bg-surface">
+    // id targeted by the "See all industries" nav link; scroll-mt clears
+    // the fixed header when jumping to the anchor.
+    <section id="industries" className="scroll-mt-20 border-y border-border bg-surface">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Who It's For</Eyebrow>

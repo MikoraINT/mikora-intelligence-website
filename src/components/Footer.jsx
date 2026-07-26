@@ -18,6 +18,7 @@ const COLUMNS = [
       { label: 'Aesthetic Devices', to: '/solutions/aesthetic-devices' },
       { label: 'Training Academies', to: '/solutions/training-academies' },
       { label: 'Agencies', to: '/solutions/agencies' },
+      { label: 'All Industries', to: '/#industries' },
     ],
   },
   {

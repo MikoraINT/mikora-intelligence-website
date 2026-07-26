@@ -1,6 +1,7 @@
 import SolutionTemplate from '../components/SolutionTemplate';
 import {
   WhatsAppChatMock,
+  WhatsAppIndustriesMock,
   EscalationMock,
   ConversationLogMock,
 } from '../components/mockups';
@@ -32,7 +33,7 @@ export default function CapabilityWhatsAppSupport() {
           title: 'Answers from your own materials',
           description:
             'Your SOPs, manuals, and protocols power every response, so answers are always accurate to your standards.',
-          mock: <WhatsAppChatMock sourceRef="Advanced Training Manual" />,
+          mock: <WhatsAppIndustriesMock />,
         },
         {
           title: 'Intelligent escalation',
@@ -50,7 +51,14 @@ export default function CapabilityWhatsAppSupport() {
           title: 'Verified, not just generated',
           description:
             'Every answer is backed by documents your named experts signed off — with corrections that outrank the knowledge base the moment they’re confirmed. Accountability no generic chatbot can offer.',
-          mock: <WhatsAppChatMock sourceRef="Signed off · Head Trainer" />,
+          mock: (
+            <WhatsAppChatMock
+              sourceRef="Signed off · Head Trainer"
+              question="Can I use the M8 setting on sensitive areas?"
+              answer="No — updated guidance: use M5, two passes maximum. This correction was confirmed by your Head Trainer and now outranks the original manual."
+              footnote="Corrections outrank the knowledge base the moment they're confirmed"
+            />
+          ),
         },
       ]}
       outcomes={[

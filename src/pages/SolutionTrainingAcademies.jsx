@@ -32,7 +32,13 @@ export default function SolutionTrainingAcademies() {
           title: 'Instant WhatsApp answers from your own knowledge base',
           description:
             'SOPs, training manuals, and treatment protocols become an always-on support layer.',
-          mock: <WhatsAppChatMock />,
+          mock: (
+            <WhatsAppChatMock
+              sourceRef="Aftercare Protocol"
+              question="My client asked how soon they can shower after treatment — what do I tell them?"
+              answer="Wait 24 hours, lukewarm water only, pat the area dry. Full aftercare steps are in module 6 of your course manual."
+            />
+          ),
         },
         {
           title: 'Intelligent escalation',

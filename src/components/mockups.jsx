@@ -352,21 +352,20 @@ export function ActivityMock() {
 /* WhatsApp support                                                    */
 /* ------------------------------------------------------------------ */
 
-export function WhatsAppChatMock({ sourceRef }) {
+export function WhatsAppChatMock({
+  sourceRef,
+  question = 'What clearance does the V240 need for a wall install?',
+  answer = 'Minimum 150mm clearance on all sides for the V240 — 300mm above if mounted under a shelf. Fix both anchor points into solid masonry, never plasterboard alone.',
+  footnote = 'Answered in 4 seconds — from your training manual',
+}) {
   return (
     <MockShell label="WHATSAPP SUPPORT" meta="21:04 Saturday">
       <div className="space-y-3">
         <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm border border-border bg-background px-4 py-3">
-          <p className="text-small text-white/90">
-            What clearance does the V240 need for a wall install?
-          </p>
+          <p className="text-small text-white/90">{question}</p>
         </div>
         <div className="max-w-[90%] rounded-2xl rounded-bl-sm border border-gold/30 bg-gold/10 px-4 py-3">
-          <p className="text-small text-white/90">
-            Minimum 150mm clearance on all sides for the V240 — 300mm above
-            if mounted under a shelf. Fix both anchor points into solid
-            masonry, never plasterboard alone.
-          </p>
+          <p className="text-small text-white/90">{answer}</p>
           {sourceRef && (
             <div className="mt-2.5">
               <Chip>Source: {sourceRef}</Chip>
@@ -375,7 +374,60 @@ export function WhatsAppChatMock({ sourceRef }) {
         </div>
       </div>
       <p className="mt-4 text-right font-mono text-[11px] text-muted">
-        Answered in 4 seconds — from your training manual
+        {footnote}
+      </p>
+    </MockShell>
+  );
+}
+
+/* Three compact exchanges from three industries — shows the same platform
+   answering aesthetics, construction and healthcare questions. */
+const INDUSTRY_EXCHANGES = [
+  {
+    industry: 'AESTHETICS',
+    q: 'Client has mild redness 48h after a plasma session — normal?',
+    a: 'Yes — mild erythema is expected up to 72h. Escalate if swelling spreads or blisters form.',
+    source: 'Clinical Aftercare Guide',
+  },
+  {
+    industry: 'CONSTRUCTION',
+    q: 'What clearance does the V240 need for a wall install?',
+    a: '150mm on all sides, 300mm above. Anchor into solid masonry only.',
+    source: 'Install Manual v4',
+  },
+  {
+    industry: 'HEALTHCARE',
+    q: 'Which cycle sterilises the S-line handpieces?',
+    a: 'Cycle B — 134°C for 3 minutes, pouched. Log the batch in the register.',
+    source: 'Infection Control SOP',
+  },
+];
+
+export function WhatsAppIndustriesMock() {
+  return (
+    <MockShell label="WHATSAPP SUPPORT" meta="one platform · any industry">
+      <div className="space-y-4">
+        {INDUSTRY_EXCHANGES.map(({ industry, q, a, source }) => (
+          <div key={industry}>
+            <p className="mb-1.5 font-mono text-[10px] tracking-[0.2em] text-muted">
+              {industry}
+            </p>
+            <div className="space-y-1.5">
+              <div className="ml-auto max-w-[85%] rounded-xl rounded-br-sm border border-border bg-background px-3 py-2">
+                <p className="text-xs leading-relaxed text-white/90">{q}</p>
+              </div>
+              <div className="max-w-[90%] rounded-xl rounded-bl-sm border border-gold/30 bg-gold/10 px-3 py-2">
+                <p className="text-xs leading-relaxed text-white/90">{a}</p>
+                <p className="mt-1 font-mono text-[10px] text-gold/80">
+                  Source: {source}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-4 text-right font-mono text-[11px] text-muted">
+        Every answer in seconds — each from your own documents
       </p>
     </MockShell>
   );
