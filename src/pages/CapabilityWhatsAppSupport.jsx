@@ -12,7 +12,7 @@ export default function CapabilityWhatsAppSupport() {
         title:
           'Your knowledge base. Their pocket. Instantly — Mikora Intelligence',
         description:
-          'Practitioners and customers get accurate answers on WhatsApp in seconds — drawn from your own training materials, protocols, and documentation.',
+          'Your team and your customers get accurate answers on WhatsApp in seconds — drawn from your own training materials, SOPs, protocols and internal know-how.',
         canonical:
           'https://mikoraintelligence.com/capabilities/whatsapp-support',
       }}
@@ -20,12 +20,12 @@ export default function CapabilityWhatsAppSupport() {
         eyebrow: 'WhatsApp Support Intelligence',
         title: 'Your knowledge base. Their pocket. Instantly.',
         subtitle:
-          'Practitioners and customers get accurate answers on WhatsApp in seconds — drawn from your own training materials, protocols, and documentation — with intelligent escalation to your team when it matters.',
+          'Your team and your customers get accurate answers on WhatsApp in seconds — drawn from your own training materials, SOPs, protocols and internal know-how — with intelligent escalation to your experts when it matters.',
       }}
       problems={[
         'Support queries arrive at all hours and wait until morning.',
-        'Your best trainers answer the same questions on repeat.',
-        'Written manuals exist but nobody opens them mid-treatment.',
+        'Your best people answer the same questions on repeat.',
+        'Written manuals exist but nobody opens them mid-job.',
       ]}
       solutions={[
         {
@@ -56,7 +56,7 @@ export default function CapabilityWhatsAppSupport() {
       outcomes={[
         'Answers in seconds, day or night.',
         'Trainer hours reclaimed every week.',
-        'Support quality consistent for every practitioner.',
+        'Support quality consistent for everyone you support.',
       ]}
       related={[
         { title: 'Training Academies', to: '/solutions/training-academies' },

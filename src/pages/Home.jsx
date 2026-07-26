@@ -176,10 +176,9 @@ function Hero() {
             {...fadeUp(0.12)}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            Mikora turns your manuals, protocols and training materials into a
-            24/7 support intelligence your practitioners message like a
-            colleague — verified by your experts, with human escalation when it
-            matters.
+            Mikora turns your training, protocols and internal know-how into
+            instant, expert-verified answers on WhatsApp — for your whole
+            team, network or customer base, with human escalation built in.
           </motion.p>
 
           <motion.div
@@ -234,11 +233,11 @@ function Hero() {
 /* ------------------------------------------------------------------ */
 
 const CLIENT_TYPES = [
-  'Aesthetic Device Brand',
+  'Device Manufacturer',
   'Training Academy',
   'Marketing Agency',
   'Franchise Network',
-  'Device Distributor',
+  'Equipment Distributor',
 ];
 
 function SocialProofStrip() {
@@ -272,7 +271,7 @@ function SocialProofStrip() {
 const PROBLEMS = [
   'Questions arrive at all hours and wait until morning.',
   'Your best people answer the same questions on repeat.',
-  'Manuals exist, but nobody opens them mid-treatment.',
+  'Manuals exist, but nobody opens them mid-job.',
 ];
 
 function Problem() {
@@ -285,10 +284,11 @@ function Problem() {
             Your experts can't be everywhere at once
           </h2>
           <p className="mt-6 max-w-xl text-body text-muted">
-            Your network has questions mid-treatment, mid-install, mid-shift.
-            Your experts have the answers — but they're asleep, in training, or
-            answering the same question for the hundredth time. The manuals
-            exist. Nobody opens them with gloves on.
+            Your people have questions mid-job, mid-install, mid-shift. Your
+            experts have the answers — but they're asleep, in training, or
+            answering the same question for the hundredth time. The knowledge
+            exists — in manuals, SOPs, training decks and senior heads. Nobody
+            can reach it with their hands full.
           </p>
         </Reveal>
 
