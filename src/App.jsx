@@ -54,7 +54,10 @@ function RouteFallback() {
 
 export default function App() {
   return (
-    <MotionConfig reducedMotion="user">
+    // During prerendering there is no viewport or scroll, so entrance
+    // animations must not leave content at opacity 0 in the static HTML —
+    // "always" makes every useReducedMotion() gate render the final state.
+    <MotionConfig reducedMotion={import.meta.env.SSR ? 'always' : 'user'}>
       <div className="flex min-h-screen flex-col bg-background font-body text-white">
         <a
           href="#main"
