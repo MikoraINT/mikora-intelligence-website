@@ -16,6 +16,7 @@ const CAPABILITIES = [
   { label: 'ROI Calculator', to: '/capabilities/roi-calculator' },
   { label: 'Sales Alerts', to: '/capabilities/sales-alerts' },
   { label: 'Website Assistant', to: '/capabilities/website-assistant' },
+  { label: 'Website Activity Scoring', to: '/capabilities/website-activity-scoring' },
   { label: 'Website Build', to: '/capabilities/website-build' },
 ];
 
