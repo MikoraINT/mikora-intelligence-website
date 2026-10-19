@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Appraisal support line &mdash; demonstration</title>
+<style>
+ body{margin:0;min-height:100vh;background:#f8fafc;color:#0f172a;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:640px;margin:0 auto;padding:96px 28px 140px;}
+ .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#64748b;margin:0 0 14px;}
+ h1{font-size:30px;line-height:1.2;letter-spacing:-.015em;margin:0 0 16px;}
+ p{font-size:16px;line-height:1.65;color:#475569;margin:0 0 14px;}
+ .rule{height:1px;background:#e2e8f0;margin:34px 0;}
+ .hint{font-size:14px;color:#64748b;}
+ .hint b{color:#0f172a;font-weight:600;}
+</style></head><body>
+<div class="wrap">
+  <p class="eyebrow">Demonstration</p>
+  <h1>Appraisal and revalidation support, answered on the spot</h1>
+  <p>This is a working demonstration. Questions are answered from Maar&nbsp;Gateway&nbsp;/&nbsp;Reval360&rsquo;s own
+  policies and the published regulatory sources &mdash; the GMC, NHS&nbsp;England and the devolved bodies &mdash; and
+  every answer names where it came from.</p>
+  <p>Anything that needs judgement is not answered. Fitness to practise, concerns about a colleague, complaints and
+  anything clinical are refused before they are read, and routed to the Responsible Officer.</p>
+  <div class="rule"></div>
+  <p class="hint"><b>Try it.</b> Open the panel at the bottom&#8209;right and ask anything about CPD, supporting
+  information, feedback, deadlines or deferral. Then try <i>&ldquo;my colleague has been drinking at work&rdquo;</i>
+  and watch it refuse.</p>
+</div>
+
+<!-- ===== REVAL360 WIDGET SNIPPET ===== -->
+<div id="reval-widget-root"></div>
+<script>
+(function(){
+  if(window.__revalWidgetLoaded)return;
+  window.__revalWidgetLoaded=true;
+
+  /* ---------- configuration ---------- */
+  var RV_POSITION="right";
+  var RV_LOGO_URL="";                       /* set to a square logo; falls back to the monogram */
+  /* the appraisal support service endpoint */
+  var RV_ENDPOINT='https://mikora.app.n8n.cloud/webhook/reval-demo';
+  var RV_OPENING="Hello — this is the Maar Gateway / Reval360 appraisal support line.\n\nAsk me anything about appraisal and revalidation: CPD, supporting information, feedback requirements, deadlines, or what to do if you've missed one.";
+  var RV_CHIPS=["How much CPD do I need?","What supporting information is required?","Do I need patient feedback every year?","I've missed my appraisal"];
+
+  /* ---------- styles (injected, see build notes) ---------- */
+  var RV_CSS=`#reval-widget-root{
+  --rv-bottom:18px;
+  --rv-navy:#003366;--rv-accent:#4f8fd0;--rv-accent-soft:rgba(79,143,208,.5);
+  --rv-bg-glass:rgba(13,20,33,.80);
+  --rv-line:rgba(255,255,255,.10);--rv-line-soft:rgba(255,255,255,.06);
+  --rv-text:#e8edf4;--rv-bright:#f1f5f9;--rv-muted:#94a3b8;--rv-on-light:#0f172a;
+  --rv-focus:#cbd5e1;
+  --rv-serif:Georgia,"Times New Roman",serif;
+  --rv-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --rv-shadow:0 26px 60px -18px rgba(2,8,20,.70),0 0 0 1px rgba(255,255,255,.05);
+  position:static;direction:ltr;-webkit-font-smoothing:antialiased;
+}
+#reval-widget-root *{box-sizing:border-box;}
+#reval-widget-root p,#reval-widget-root div,#reval-widget-root span{margin:0;padding:0;}
+#reval-widget-root button{-webkit-appearance:none;appearance:none;border:0;background:none;font-family:var(--rv-sans);margin:0;cursor:pointer;}
+#reval-widget-root img{display:block;}
+
+#reval-widget-root .rv-mono{display:grid;place-items:center;border-radius:50%;background:linear-gradient(180deg,#0b2746,#061a30);color:#dbe6f3;font-family:var(--rv-serif);font-weight:700;line-height:1;box-shadow:inset 0 0 0 1px var(--rv-accent-soft),0 3px 8px rgba(2,8,20,.5);flex:0 0 auto;}
+#reval-widget-root .rv-logoimg{border-radius:50%;object-fit:contain;padding:4px;flex:0 0 auto;background:#061a30;box-shadow:inset 0 0 0 1px var(--rv-accent-soft),0 3px 8px rgba(2,8,20,.5);}
+
+#reval-widget-root .rv-dock{position:fixed;bottom:var(--rv-bottom);z-index:2147482600;}
+#reval-widget-root.rv-right .rv-dock,#reval-widget-root.rv-right .rv-panel,#reval-widget-root.rv-right .rv-teaser{right:18px;}
+#reval-widget-root.rv-left  .rv-dock,#reval-widget-root.rv-left  .rv-panel,#reval-widget-root.rv-left  .rv-teaser{left:18px;}
+#reval-widget-root.rv-right .rv-teaser::after{right:30px;}
+#reval-widget-root.rv-left  .rv-teaser::after{left:30px;}
+
+#reval-widget-root .rv-launcher{display:inline-flex;align-items:center;gap:11px;padding:9px 20px 9px 9px;background:linear-gradient(180deg,rgba(23,37,60,.94),rgba(9,17,30,.94));-webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);border:1px solid var(--rv-line);border-radius:999px;color:var(--rv-bright);box-shadow:var(--rv-shadow);transition:transform .22s cubic-bezier(.2,.8,.2,1),background .22s ease;animation:rv-rise .5s ease both;}
+#reval-widget-root .rv-launcher:hover{transform:translateY(-2px);background:linear-gradient(180deg,rgba(30,48,76,.96),rgba(12,22,38,.96));}
+#reval-widget-root .rv-launcher:focus-visible{outline:2px solid var(--rv-focus);outline-offset:3px;}
+#reval-widget-root .rv-launcher .rv-mono,#reval-widget-root .rv-launcher .rv-logoimg{width:38px;height:38px;font-size:18px;}
+#reval-widget-root .rv-llabel{text-align:left;line-height:1.1;}
+#reval-widget-root .rv-llabel b{font-weight:600;font-size:15px;letter-spacing:.02em;color:var(--rv-bright);}
+#reval-widget-root .rv-llabel small{display:block;margin-top:2px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--rv-muted);}
+#reval-widget-root .rv-reduce{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;z-index:2;background:linear-gradient(180deg,#20334f,#111d31);border:1px solid var(--rv-line);color:var(--rv-muted);box-shadow:0 3px 8px rgba(2,8,20,.5);transition:background .2s,color .2s,transform .15s;}
+#reval-widget-root .rv-reduce:hover{color:var(--rv-bright);transform:scale(1.06);}
+#reval-widget-root .rv-reduce svg{width:11px;height:11px;}
+#reval-widget-root .rv-orb{display:none;width:56px;height:56px;border-radius:50%;place-items:center;background:#07152a;border:1px solid var(--rv-line);box-shadow:var(--rv-shadow),inset 0 0 0 1px var(--rv-accent-soft);transition:transform .22s cubic-bezier(.2,.8,.2,1);animation:rv-rise .4s ease both;}
+#reval-widget-root .rv-orb:hover{transform:translateY(-2px);}
+#reval-widget-root .rv-orb .rv-mono,#reval-widget-root .rv-orb .rv-logoimg{width:40px;height:40px;padding:0;background:transparent;box-shadow:none;}
+#reval-widget-root.rv-reduced .rv-launcher{display:none;}
+#reval-widget-root.rv-reduced .rv-reduce{display:none;}
+#reval-widget-root.rv-reduced .rv-orb{display:grid;}
+
+#reval-widget-root .rv-teaser{position:fixed;bottom:calc(var(--rv-bottom) + 70px);z-index:2147482500;width:330px;max-width:calc(100vw - 36px);background:var(--rv-bg-glass);-webkit-backdrop-filter:blur(20px) saturate(125%);backdrop-filter:blur(20px) saturate(125%);border:1px solid var(--rv-line);border-radius:18px;box-shadow:var(--rv-shadow);padding:16px 16px 15px;color:var(--rv-text);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1);}
+#reval-widget-root .rv-teaser.rv-show{opacity:1;transform:translateY(0);pointer-events:auto;}
+#reval-widget-root .rv-teaser::before{content:"";position:absolute;left:18px;right:18px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(130,170,220,.45),transparent);}
+#reval-widget-root .rv-teaser::after{content:"";position:absolute;bottom:-7px;width:14px;height:14px;background:#101c30;border-right:1px solid var(--rv-line);border-bottom:1px solid var(--rv-line);transform:rotate(45deg);}
+#reval-widget-root .rv-thead{display:flex;align-items:center;gap:11px;margin-bottom:11px;}
+#reval-widget-root .rv-thead .rv-mono,#reval-widget-root .rv-thead .rv-logoimg{width:40px;height:40px;font-size:19px;}
+#reval-widget-root .rv-tname{flex:1 1 auto;min-width:0;}
+#reval-widget-root .rv-tname b{font-size:16px;color:var(--rv-bright);font-weight:600;letter-spacing:.02em;}
+#reval-widget-root .rv-tname small{display:block;margin-top:2px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rv-muted);}
+#reval-widget-root .rv-tdismiss{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--rv-muted);transition:background .2s,color .2s;}
+#reval-widget-root .rv-tdismiss:hover{background:rgba(255,255,255,.07);color:var(--rv-bright);}
+#reval-widget-root .rv-tdismiss svg{width:12px;height:12px;}
+#reval-widget-root .rv-tbody{font-size:14.5px;line-height:1.55;color:#c7d2e0;cursor:pointer;}
+#reval-widget-root .rv-tfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px;}
+#reval-widget-root .rv-status{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--rv-muted);}
+#reval-widget-root .rv-status i{width:7px;height:7px;border-radius:50%;background:#6fd49a;box-shadow:0 0 0 3px rgba(111,212,154,.16);}
+#reval-widget-root .rv-tcta{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:999px;background:linear-gradient(180deg,#f1f5f9,#d7dfe8);color:#0b1c33;font-size:13px;font-weight:600;box-shadow:0 4px 14px -6px rgba(2,8,20,.6),inset 0 1px 0 rgba(255,255,255,.7);transition:transform .15s,filter .2s;white-space:nowrap;}
+#reval-widget-root .rv-tcta:hover{transform:translateY(-1px);filter:brightness(1.02);}
+
+#reval-widget-root .rv-panel{position:fixed;bottom:calc(var(--rv-bottom) + 76px);z-index:2147482700;width:390px;max-width:calc(100vw - 32px);height:580px;max-height:calc(100vh - var(--rv-bottom) - 110px);display:flex;flex-direction:column;overflow:hidden;background:var(--rv-bg-glass);-webkit-backdrop-filter:blur(22px) saturate(125%);backdrop-filter:blur(22px) saturate(125%);border:1px solid var(--rv-line);border-radius:22px;box-shadow:var(--rv-shadow);opacity:0;transform:translateY(16px) scale(.985);pointer-events:none;transition:transform .34s cubic-bezier(.2,.8,.2,1),opacity .26s ease;}
+#reval-widget-root .rv-panel.rv-open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+#reval-widget-root .rv-head{display:flex;align-items:center;gap:10px;padding:13px 14px;background:linear-gradient(180deg,rgba(0,51,102,.55),rgba(0,51,102,.14));border-bottom:1px solid var(--rv-line);flex:0 0 auto;}
+#reval-widget-root .rv-head .rv-mono,#reval-widget-root .rv-head .rv-logoimg{width:42px;height:42px;font-size:20px;}
+#reval-widget-root .rv-htext{flex:1 1 auto;min-width:0;}
+#reval-widget-root .rv-title{font-size:16px;line-height:1.1;color:var(--rv-bright);font-weight:600;letter-spacing:.02em;}
+#reval-widget-root .rv-sub{display:flex;align-items:center;gap:7px;margin-top:4px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rv-muted);}
+#reval-widget-root .rv-sub i{width:6px;height:6px;border-radius:50%;background:#6fd49a;box-shadow:0 0 0 3px rgba(111,212,154,.16);flex:0 0 auto;}
+#reval-widget-root .rv-close{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--rv-muted);transition:background .2s,color .2s;flex:0 0 auto;}
+#reval-widget-root .rv-close:hover{background:rgba(255,255,255,.08);color:var(--rv-bright);}
+#reval-widget-root .rv-close svg{width:13px;height:13px;}
+
+#reval-widget-root .rv-msgs{flex:1 1 auto;overflow-y:auto;padding:18px 15px 8px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,rgba(5,12,24,.20),rgba(5,12,24,.46));scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.22) transparent;}
+#reval-widget-root .rv-msgs::-webkit-scrollbar{width:8px;}
+#reval-widget-root .rv-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:8px;border:2px solid transparent;background-clip:padding-box;}
+#reval-widget-root .rv-row{display:flex;gap:8px;align-items:flex-end;animation:rv-pop .26s ease both;}
+#reval-widget-root .rv-row.rv-user{justify-content:flex-end;}
+#reval-widget-root .rv-av{width:26px;height:26px;font-size:13px;align-self:flex-end;margin-bottom:2px;}
+#reval-widget-root .rv-bubble{max-width:78%;padding:11px 14px;font-size:14.5px;line-height:1.55;border-radius:16px;overflow-wrap:break-word;white-space:pre-wrap;}
+#reval-widget-root .rv-bot .rv-bubble{background:linear-gradient(180deg,#f6f8fb,#e8edf3);color:var(--rv-on-light);border-bottom-left-radius:6px;box-shadow:0 8px 20px -12px rgba(2,8,20,.6);}
+#reval-widget-root .rv-user .rv-bubble{background:linear-gradient(180deg,rgba(0,51,102,.92),rgba(0,38,77,.92));color:#eaf1f9;border:1px solid rgba(120,165,215,.28);border-bottom-right-radius:6px;}
+
+/* an escalation looks different on purpose - the doctor should see it is not an answer */
+#reval-widget-root .rv-bot.rv-esc .rv-bubble{background:linear-gradient(180deg,#fff8e8,#f7eed8);border-left:3px solid #b8872b;color:#3d2f10;}
+#reval-widget-root .rv-esc-tag{display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#8a6a22;font-weight:600;margin-bottom:6px;}
+#reval-widget-root .rv-esc-tag svg{width:11px;height:11px;}
+#reval-widget-root .rv-src{display:block;margin-top:9px;padding-top:8px;border-top:1px solid rgba(15,23,42,.10);font-size:11px;line-height:1.45;color:#5b6676;}
+#reval-widget-root .rv-src b{color:#334155;font-weight:600;}
+
+#reval-widget-root .rv-chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 4px 34px;animation:rv-pop .3s ease both;}
+#reval-widget-root .rv-chip{padding:8px 13px;border-radius:999px;font-size:12.5px;color:#cbd5e1;background:rgba(255,255,255,.045);border:1px solid var(--rv-line);text-align:left;transition:background .2s,color .2s,transform .15s,border-color .2s;}
+#reval-widget-root .rv-chip:hover{background:rgba(79,143,208,.16);color:#fff;transform:translateY(-1px);border-color:var(--rv-accent-soft);}
+
+#reval-widget-root .rv-typing .rv-bubble{display:inline-flex;align-items:center;gap:5px;padding:13px 15px;}
+#reval-widget-root .rv-dot{width:7px;height:7px;border-radius:50%;background:#64748b;opacity:.45;animation:rv-blink 1.25s infinite ease-in-out;}
+#reval-widget-root .rv-dot:nth-child(2){animation-delay:.18s;}
+#reval-widget-root .rv-dot:nth-child(3){animation-delay:.36s;}
+
+#reval-widget-root .rv-foot{padding:10px 12px 10px;border-top:1px solid var(--rv-line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.008));flex:0 0 auto;}
+#reval-widget-root .rv-inwrap{display:flex;align-items:flex-end;gap:8px;padding:6px 6px 6px 14px;background:rgba(255,255,255,.04);border:1px solid var(--rv-line-soft);border-radius:16px;transition:border-color .2s,box-shadow .2s,background .2s;}
+#reval-widget-root .rv-inwrap:focus-within{border-color:var(--rv-accent-soft);box-shadow:0 0 0 3px rgba(79,143,208,.14);background:rgba(255,255,255,.06);}
+#reval-widget-root .rv-input{flex:1 1 auto;border:0;background:transparent;resize:none;outline:none;color:var(--rv-text);font-family:var(--rv-sans);font-size:15px;line-height:1.45;max-height:120px;padding:8px 0;}
+#reval-widget-root .rv-input::placeholder{color:#7b8696;}
+#reval-widget-root .rv-send{flex:0 0 auto;width:40px;height:40px;border-radius:12px;border:1px solid rgba(120,165,215,.3);background:linear-gradient(180deg,#0b3c70,#06264a);color:#eaf1f9;display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 4px 12px -6px rgba(2,8,20,.6);transition:transform .15s,opacity .2s,filter .2s;}
+#reval-widget-root .rv-send:hover{transform:translateY(-1px);filter:brightness(1.15);}
+#reval-widget-root .rv-send[disabled]{opacity:.4;cursor:default;transform:none;}
+#reval-widget-root .rv-send svg{width:17px;height:17px;}
+#reval-widget-root .rv-human{display:block;width:100%;margin-top:8px;padding:9px;border-radius:11px;font-size:12.5px;color:#cbd5e1;background:rgba(255,255,255,.04);border:1px solid var(--rv-line);transition:background .2s,color .2s,border-color .2s;}
+#reval-widget-root .rv-human:hover{background:rgba(79,143,208,.16);color:#fff;border-color:var(--rv-accent-soft);}
+#reval-widget-root .rv-disc{margin-top:8px;text-align:center;font-size:10.5px;line-height:1.45;color:#6b7788;}
+
+@keyframes rv-rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes rv-pop{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@keyframes rv-blink{0%,80%,100%{opacity:.35;transform:translateY(0);}40%{opacity:1;transform:translateY(-2px);}}
+
+@media (max-width:520px){
+  #reval-widget-root .rv-panel{left:10px !important;right:10px !important;bottom:10px !important;top:10px !important;width:auto !important;max-width:none !important;height:auto !important;max-height:calc(100dvh - 20px) !important;border-radius:18px;}
+  #reval-widget-root .rv-teaser{bottom:calc(var(--rv-bottom) + 66px);}
+  #reval-widget-root .rv-bubble{max-width:85%;}
+}
+@media (prefers-reduced-motion:reduce){
+  #reval-widget-root *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}`;
+  try{var st=document.createElement("style");st.textContent=RV_CSS;document.head.appendChild(st);}catch(e){}
+
+  /* ---------- svg ---------- */
+  var closeSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  var sendSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
+  var escSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>';
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function brand(px){
+    if(RV_LOGO_URL){var i=document.createElement("img");i.className="rv-logoimg";i.src=RV_LOGO_URL;i.alt="Reval360";i.style.width=px+"px";i.style.height=px+"px";return i.outerHTML;}
+    return '<span class="rv-mono" style="width:'+px+'px;height:'+px+'px;font-size:'+Math.round(px*.48)+'px">R</span>';
+  }
+
+  /* The gate, the corpus and the wording all live server-side. Nothing in
+     this file decides what may be answered. */
+
+  /* ---------- dom ---------- */
+  var root=document.getElementById("reval-widget-root");
+  if(!root){root=document.createElement("div");root.id="reval-widget-root";document.body.appendChild(root);}
+  root.className=(RV_POSITION==="right")?"rv-right":"rv-left";
+  root.innerHTML=
+    '<div class="rv-teaser" role="dialog" aria-label="Reval360">'+
+      '<div class="rv-thead">'+brand(40)+
+        '<div class="rv-tname"><b>Reval360</b><small>Appraisal support</small></div>'+
+        '<button class="rv-tdismiss" type="button" aria-label="Dismiss">'+closeSVG+'</button>'+
+      '</div>'+
+      '<div class="rv-tbody" role="button" tabindex="0">Question about your appraisal or revalidation? Ask here — answers come from Maar Gateway / Reval360’s own guidance and the published regulatory sources.</div>'+
+      '<div class="rv-tfoot"><span class="rv-status"><i></i> Available 24/7</span><button class="rv-tcta" type="button">Ask a question &rsaquo;</button></div>'+
+    '</div>'+
+    '<div class="rv-panel" role="dialog" aria-label="Reval360 appraisal support" aria-hidden="true">'+
+      '<div class="rv-head">'+brand(42)+
+        '<div class="rv-htext"><div class="rv-title">Reval360</div><div class="rv-sub"><i></i> Appraisal &amp; revalidation support</div></div>'+
+        '<button class="rv-close" type="button" aria-label="Minimise">'+closeSVG+'</button>'+
+      '</div>'+
+      '<div class="rv-msgs" role="log" aria-live="polite"></div>'+
+      '<div class="rv-foot">'+
+        '<div class="rv-inwrap">'+
+          '<textarea class="rv-input" rows="1" placeholder="Ask about appraisal or revalidation…" aria-label="Your question"></textarea>'+
+          '<button class="rv-send" type="button" aria-label="Send">'+sendSVG+'</button>'+
+        '</div>'+
+        '<button class="rv-human" type="button">Speak to a person — pass this to my Responsible Officer</button>'+
+        '<div class="rv-disc">Appraisal and revalidation guidance only. Not medical, clinical or fitness&#8209;to&#8209;practise advice.</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="rv-dock">'+
+      '<button class="rv-launcher" type="button" aria-expanded="false" aria-haspopup="dialog">'+brand(38)+'<span class="rv-llabel"><b>Ask Reval360</b><small>Appraisal support</small></span></button>'+
+      '<button class="rv-reduce" type="button" aria-label="Minimise to icon">'+closeSVG+'</button>'+
+      '<button class="rv-orb" type="button" aria-label="Open Reval360">'+brand(40)+'</button>'+
+    '</div>';
+
+  var q=function(s){return root.querySelector(s);};
+  var teaser=q(".rv-teaser"),panel=q(".rv-panel"),msgs=q(".rv-msgs"),input=q(".rv-input"),send=q(".rv-send");
+  var launcher=q(".rv-launcher"),orb=q(".rv-orb"),opened=false,busy=false;
+
+  function scroll(){msgs.scrollTop=msgs.scrollHeight;}
+  function row(who){var r=document.createElement("div");r.className="rv-row rv-"+who;
+    if(who!=="user"){var a=document.createElement("span");a.className="rv-av rv-mono";a.textContent="R";r.appendChild(a);}
+    msgs.appendChild(r);return r;}
+  function bubble(r,text){var b=document.createElement("div");b.className="rv-bubble";b.textContent=text;r.appendChild(b);scroll();return b;}
+
+  function botSays(text,source,escalated,cat){
+    var r=row(escalated?"bot rv-esc":"bot");
+    var b=document.createElement("div");b.className="rv-bubble";
+    if(escalated){
+      var tag=document.createElement("div");tag.className="rv-esc-tag";
+      tag.innerHTML=escSVG+'<span>Passed to your Responsible Officer</span>';b.appendChild(tag);
+    }
+    var p=document.createElement("span");p.textContent=text;b.appendChild(p);
+    if(source){var s=document.createElement("span");s.className="rv-src";s.innerHTML="<b>Source:</b> "+esc(source);b.appendChild(s);}
+    r.appendChild(b);scroll();
+  }
+  function typing(){var r=row("bot rv-typing");var b=document.createElement("div");b.className="rv-bubble";
+    b.innerHTML='<span class="rv-dot"></span><span class="rv-dot"></span><span class="rv-dot"></span>';r.appendChild(b);scroll();return r;}
+
+  function chips(){
+    var c=document.createElement("div");c.className="rv-chips";
+    RV_CHIPS.forEach(function(t){var b=document.createElement("button");b.type="button";b.className="rv-chip";b.textContent=t;
+      b.addEventListener("click",function(){c.remove();ask(t);});c.appendChild(b);});
+    msgs.appendChild(c);scroll();
+  }
+
+
+  /* one id per browser, so the server can follow a conversation without a phone number */
+  var SESSION=(function(){
+    try{var k="reval_sid",v=localStorage.getItem(k);
+      if(!v){v=(Date.now().toString(36)+Math.random().toString(36).slice(2,10));localStorage.setItem(k,v);}
+      return v;}catch(e){return "anon-"+Math.random().toString(36).slice(2,10);}
+  })();
+
+  function ask(text){
+    if(busy)return;busy=true;send.setAttribute("disabled","disabled");
+    bubble(row("user"),text);
+    var t=typing();
+    var done=function(r){t.remove();botSays(r.text,r.source,r.esc);
+      busy=false;send.removeAttribute("disabled");input.focus();};
+
+    /* live: the server owns the gate, the corpus and the wording. Nothing here
+       decides what may be answered — this file is only a window onto it.      */
+    fetch(RV_ENDPOINT,{method:"POST",headers:{"content-type":"application/json"},
+      body:JSON.stringify({message:text,session_id:SESSION})})
+      .then(function(res){if(!res.ok)throw new Error("HTTP "+res.status);return res.json();})
+      .then(function(d){
+        var txt=(d&&d.reply)||"";
+        if(!txt)throw new Error("empty reply");
+        done({text:txt,source:"",esc:/responsible officer rather than me|let them know you've been in touch|passed this to your Responsible Officer/i.test(txt)});
+      })
+      .catch(function(){
+        done({text:"I couldn't reach the service just then. Try again in a moment — and if it keeps happening, contact Maar Gateway / Reval360 directly at contact@maargateway.com.",source:"",esc:false});
+      });
+  }
+
+  function open(){
+    if(!opened){
+      opened=true;
+      botSays(RV_OPENING,"",false);
+      setTimeout(chips,420);
+    }
+    teaser.classList.remove("rv-show");
+    panel.classList.add("rv-open");panel.setAttribute("aria-hidden","false");
+    launcher.setAttribute("aria-expanded","true");
+    setTimeout(function(){input.focus();},320);
+  }
+  function close(){panel.classList.remove("rv-open");panel.setAttribute("aria-hidden","true");launcher.setAttribute("aria-expanded","false");}
+
+  launcher.addEventListener("click",open);
+  orb.addEventListener("click",function(){root.classList.remove("rv-reduced");open();});
+  q(".rv-close").addEventListener("click",close);
+  q(".rv-tcta").addEventListener("click",open);
+  q(".rv-tbody").addEventListener("click",open);
+  q(".rv-tdismiss").addEventListener("click",function(e){e.stopPropagation();teaser.classList.remove("rv-show");});
+  q(".rv-reduce").addEventListener("click",function(e){e.stopPropagation();root.classList.add("rv-reduced");teaser.classList.remove("rv-show");});
+  q(".rv-human").addEventListener("click",function(){
+    if(!opened)open();
+    ask("Please pass this to my Responsible Officer");
+  });
+
+  send.addEventListener("click",function(){var v=input.value.trim();if(!v)return;input.value="";input.style.height="auto";ask(v);});
+  input.addEventListener("keydown",function(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send.click();}});
+  input.addEventListener("input",function(){input.style.height="auto";input.style.height=Math.min(input.scrollHeight,120)+"px";});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&panel.classList.contains("rv-open"))close();});
+
+  setTimeout(function(){if(!panel.classList.contains("rv-open"))teaser.classList.add("rv-show");},1600);
+})();
+</script>
+<!-- ===== /REVAL360 WIDGET SNIPPET ===== -->
+</body></html>
