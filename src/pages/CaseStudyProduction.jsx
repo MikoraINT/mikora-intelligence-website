@@ -67,10 +67,9 @@ export default function CaseStudyProduction() {
           'Most of it began as a one-off job, which is how we would rather start.',
         ]}
       >
-        {/* Repoint to /services once the project menu in WEBSITE_OVERHAUL_PLAN.md §4A ships. */}
         <div className="mt-10">
           <Link
-            to="/request-consultation"
+            to="/services"
             className="inline-block rounded-full bg-gold px-7 py-3.5 text-small font-semibold text-background transition-colors hover:bg-goldLight"
           >
             Start with one job

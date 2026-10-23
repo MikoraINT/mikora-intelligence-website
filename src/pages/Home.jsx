@@ -201,8 +201,16 @@ function Hero() {
             </Link>
           </motion.div>
 
+          <motion.p {...fadeUp(0.3)} className="mt-6 text-small text-muted">
+            Or start with a single project —{' '}
+            <Link to="/services" className="text-gold underline-offset-4 hover:underline">
+              audits, manuals and migrations from £750
+            </Link>
+            .
+          </motion.p>
+
           <motion.ul
-            {...fadeUp(0.36)}
+            {...fadeUp(0.42)}
             className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3"
           >
             {TRUST_INDICATORS.map(({ highlight, rest }) => (

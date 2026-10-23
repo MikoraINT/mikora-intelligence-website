@@ -9,6 +9,7 @@ const COLUMNS = [
       { label: 'Platform', to: '/platform' },
       { label: 'How It Works', to: '/how-it-works' },
       { label: 'Pricing', to: '/pricing' },
+      { label: 'Services', to: '/services' },
     ],
   },
   {

@@ -238,6 +238,9 @@ export default function Navbar() {
           </NavLink>
           <DesktopDropdown label="Industries" items={SOLUTIONS} basePath="/solutions" />
           <DesktopDropdown label="Capabilities" items={CAPABILITIES} basePath="/capabilities" />
+          <NavLink to="/services" className={topLink}>
+            Services
+          </NavLink>
           <NavLink to="/pricing" className={topLink}>
             Pricing
           </NavLink>
@@ -326,6 +329,9 @@ export default function Navbar() {
               </NavLink>
               <MobileGroup label="Industries" items={SOLUTIONS} />
               <MobileGroup label="Capabilities" items={CAPABILITIES} />
+              <NavLink to="/services" className={mobileLink}>
+                Services
+              </NavLink>
               <NavLink to="/pricing" className={mobileLink}>
                 Pricing
               </NavLink>
