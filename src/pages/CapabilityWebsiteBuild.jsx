@@ -56,14 +56,14 @@ export default function CapabilityWebsiteBuild() {
         title:
           'A website that works as hard as you do — Mikora Intelligence',
         description:
-          'React websites designed, built, and deployed in days — SEO optimised, conversion focused, and wired directly into your lead pipeline from day one.',
+          'Websites designed, built, and deployed in days — SEO optimised, conversion focused, and wired directly into your lead pipeline from day one.',
         canonical: 'https://mikoraintelligence.com/capabilities/website-build',
       }}
       hero={{
         eyebrow: 'Intelligent Website Build',
         title: 'A website that works as hard as you do',
         subtitle:
-          'React websites designed, built, and deployed in days — SEO optimised, conversion focused, and wired directly into your lead pipeline from day one.',
+          'Websites designed, built, and deployed in days — SEO optimised, conversion focused, and wired directly into your lead pipeline from day one.',
       }}
       problems={[
         'Agencies quote three months and five figures for a basic site.',
@@ -74,7 +74,7 @@ export default function CapabilityWebsiteBuild() {
         {
           title: 'Built and live in days not months',
           description:
-            'Modern React architecture deployed on global infrastructure.',
+            'Built on global infrastructure, so pages load fast wherever your customers are.',
           mock: <BrowserMock />,
         },
         {

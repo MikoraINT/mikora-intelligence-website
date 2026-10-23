@@ -52,11 +52,13 @@ export const PLANS = [
   },
 ];
 
-/** Website builds — the one thing we do sell standalone. */
+/** Website builds — the one thing we do sell standalone.
+    Repriced 25% down from £1,500 / £3,500 / £6,500, rounded to the
+    nearest hundred. Stack is deliberately never named in this copy. */
 export const SITE_TIERS = [
   {
     name: 'Starter Site',
-    price: '£1,500',
+    price: '£1,100',
     features: [
       'Up to 5 pages',
       'Mobile responsive',
@@ -67,18 +69,18 @@ export const SITE_TIERS = [
   },
   {
     name: 'Growth Site',
-    price: '£3,500',
+    price: '£2,600',
     features: [
       'Up to 15 pages',
       'Everything in Starter',
       'Blog structure',
       'Lead capture form wired to your CRM',
-      'Framer Motion animations',
+      'Considered motion and transitions',
     ],
   },
   {
     name: 'Full Platform Site',
-    price: '£6,500',
+    price: '£4,800',
     features: [
       '20+ pages',
       'Everything in Growth',
@@ -89,7 +91,7 @@ export const SITE_TIERS = [
   },
 ];
 
-export const MAINTENANCE = '£500';
+export const MAINTENANCE = '£375';
 
 /** Production work. Available to clients on a plan, quoted per piece.
     Deliberately unpriced — this is not a menu to shop from. */

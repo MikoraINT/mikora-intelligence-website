@@ -143,8 +143,8 @@ function WebsiteBuildTiers() {
             Intelligent Website Build
           </h2>
           <p className="mt-5 text-body text-muted">
-            A standalone service. React websites built and deployed in days,
-            not months. SEO optimised from day one.
+            A standalone service. Fast, modern websites built and deployed
+            in days, not months. SEO optimised from day one.
           </p>
         </Reveal>
 
