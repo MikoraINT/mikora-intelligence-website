@@ -8,7 +8,7 @@ export default function CaseStudies() {
     <>
       <SEO
         title="Case studies — Mikora Intelligence"
-        description="Eighteen months inside a global aesthetic device brand: verified WhatsApp support for 200 practitioners, an attribution rebuild across 10,939 leads, and the production work that followed."
+        description="Eighteen months inside a global aesthetic device brand: verified WhatsApp support, a CRM restructured and re-automated, and the document and content production that followed."
         canonical="https://mikoraintelligence.com/case-studies"
       />
       <PageHero

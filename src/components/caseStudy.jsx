@@ -28,6 +28,23 @@ export function MetricBand({ metrics }) {
   );
 }
 
+/** Capability statement in the band slot, where figures would overexpose
+    a client's commercial data. */
+export function StatementBand({ title, body }) {
+  return (
+    <section className="border-y border-border bg-surface">
+      <div className="mx-auto max-w-3xl px-6 py-16 text-center">
+        <Reveal>
+          <h2 className="font-heading text-h2 font-bold text-white">{title}</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-body leading-relaxed text-muted">
+            {body}
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 /** Narrative block: eyebrow, heading, paragraphs. */
 export function Chapter({ eyebrow, title, paragraphs, children, bordered }) {
   return (
@@ -147,25 +164,22 @@ export const CASE_STUDIES = [
   {
     to: '/case-studies/whatsapp-support',
     eyebrow: 'Technical Support',
-    title: '200 practitioners. One WhatsApp number.',
+    title: 'Verified answers on WhatsApp',
     blurb:
       'A training library turned into verified answers in seconds, with clinical questions escalated to named trainers.',
-    metric: '54 documents on request',
   },
   {
     to: '/case-studies/lead-attribution',
     eyebrow: 'Revenue Operations',
-    title: '£552,000 won, and nobody could say why.',
+    title: 'Attribution and a rebuilt pipeline',
     blurb:
-      'An attribution audit, a website assistant that scores on arrival, and a pipeline rebuilt underneath both.',
-    metric: '10,939 leads restaged',
+      'An attribution audit, a website assistant that scores on arrival, and a CRM restructured and re-automated underneath both.',
   },
   {
     to: '/case-studies/production',
     eyebrow: 'The Whole Account',
-    title: 'One job became about ten.',
+    title: 'One job became about ten',
     blurb:
       'Manuals, course design, a catalogue migration and a captioned back catalogue — almost all of it starting as a single request.',
-    metric: '18 months, one client',
   },
 ];

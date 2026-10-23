@@ -147,7 +147,7 @@ function DataFlowDiagram() {
 /* ------------------------------------------------------------------ */
 
 const TRUST_INDICATORS = [
-  { highlight: '200+', rest: 'Practitioners Supported' },
+  { highlight: 'Escalation', rest: 'To a Human, Built In' },
   { highlight: '24/7', rest: 'Instant Answers' },
   { highlight: 'Expert-Signed', rest: 'Knowledge Base' },
 ];
@@ -234,10 +234,10 @@ function Hero() {
 /* Section 2 — Proof bar                                               */
 /* ------------------------------------------------------------------ */
 
-const PROOF_FIGURES = [
-  ['200', 'practitioners supported on one WhatsApp number'],
-  ['10,939', 'leads restaged into a rebuilt pipeline'],
-  ['18 months', 'inside one business, across ten workstreams'],
+const PROOF_AREAS = [
+  ['Knowledge systems', 'Manuals and protocols turned into verified answers'],
+  ['Revenue operations', 'CRMs restructured, re-automated and made traceable'],
+  ['Production', 'Manuals, brochures, catalogues and video, built to brand'],
 ];
 
 function ProofBar() {
@@ -246,12 +246,12 @@ function ProofBar() {
       <div className="mx-auto max-w-7xl px-6 py-14">
         <Reveal>
           <p className="text-center text-small text-muted">
-            Delivered, not promised
+            What we build
           </p>
           <ul className="mt-9 grid gap-8 sm:grid-cols-3">
-            {PROOF_FIGURES.map(([value, label]) => (
+            {PROOF_AREAS.map(([value, label]) => (
               <li key={label} className="text-center">
-                <p className="font-heading text-h2 font-bold leading-none text-gold">
+                <p className="font-heading text-h3 font-bold leading-snug text-gold">
                   {value}
                 </p>
                 <p className="mx-auto mt-3 max-w-[15rem] text-small text-muted">
