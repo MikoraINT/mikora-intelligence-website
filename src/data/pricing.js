@@ -38,7 +38,7 @@ export const PLANS = [
   },
   {
     name: 'Enterprise',
-    price: '£2,625',
+    price: '£2,600',
     blurb: 'For established operations running the full Mikora stack.',
     features: [
       'Everything in Growth',
