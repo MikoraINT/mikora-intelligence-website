@@ -8,8 +8,7 @@ export const SITE_URL = 'https://mikoraintelligence.com';
 // Every top-level route in App.jsx except the dynamic /blog/:slug and the 404
 // catch-all.
 export const STATIC_ROUTES = [
-  '/', '/platform', '/how-it-works', '/pricing', '/services',
-  '/request-consultation',
+  '/', '/platform', '/how-it-works', '/pricing', '/request-consultation',
   '/contact', '/about', '/blog', '/case-studies',
   '/case-studies/whatsapp-support', '/case-studies/lead-attribution',
   '/case-studies/production',
@@ -18,7 +17,7 @@ export const STATIC_ROUTES = [
   '/capabilities/whatsapp-support', '/capabilities/crm-sync',
   '/capabilities/ad-spend-tracking',
   '/capabilities/sales-alerts', '/capabilities/website-assistant',
-  '/capabilities/website-activity-scoring', '/capabilities/website-build',
+  '/capabilities/website-activity-scoring', '/capabilities/website-build', '/capabilities/production',
   '/privacy', '/terms',
 ];
 

@@ -9,7 +9,6 @@ const COLUMNS = [
       { label: 'Platform', to: '/platform' },
       { label: 'How It Works', to: '/how-it-works' },
       { label: 'Pricing', to: '/pricing' },
-      { label: 'Services', to: '/services' },
     ],
   },
   {
@@ -32,6 +31,7 @@ const COLUMNS = [
       { label: 'Website Assistant', to: '/capabilities/website-assistant' },
       { label: 'Website Activity Scoring', to: '/capabilities/website-activity-scoring' },
       { label: 'Website Build', to: '/capabilities/website-build' },
+      { label: 'Content Production', to: '/capabilities/production' },
     ],
   },
   {

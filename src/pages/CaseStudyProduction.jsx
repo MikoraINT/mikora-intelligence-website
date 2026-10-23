@@ -69,17 +69,17 @@ export default function CaseStudyProduction() {
       >
         <div className="mt-10">
           <Link
-            to="/services"
+            to="/capabilities/production"
             className="inline-block rounded-full bg-gold px-7 py-3.5 text-small font-semibold text-background transition-colors hover:bg-goldLight"
           >
-            Start with one job
+            See how production works
           </Link>
         </div>
       </Chapter>
 
       <CTABanner
-        heading="Got one job that needs doing?"
-        subtext="Manuals, migrations, audits, brochures — priced on their own, with no retainer attached."
+        heading="Want this behind your own business?"
+        subtext="It starts with the assistant — the production work follows once we know your material."
       />
     </>
   );

@@ -1,58 +1,58 @@
 /* Every published price on the site lives here and nowhere else.
-   Change a number once and the pricing page, the services page and the
-   case study CTAs all follow.
+   Change a number once and the pricing page follows.
 
-   Architecture: three ways to buy, in ascending commitment. A fixed-price
-   project needs no retainer and no minimum term; the pilot is the main
-   offer; the retainer has a floor and no ceiling. */
+   Shape: three monthly plans built around the WhatsApp assistant, which
+   is the subscription everything else hangs off. Website builds stay a
+   standalone one-off. Document and content production is NOT sold from
+   the site — it is work we quote for clients already on a plan, so it
+   appears as a capability with no price attached. */
 
-/** Section A — fixed-price projects. The front door. */
-export const PROJECTS = [
+/** Monthly plans. Repriced 25% down from £800 / £1,800 / £3,500. */
+export const PLANS = [
   {
-    name: 'Knowledge Bottleneck Audit',
-    price: '£750',
-    blurb:
-      'A day inside your operation: where the repeat questions come from, what they cost you in engineer hours, and which of them a system could answer.',
+    name: 'Starter',
+    price: '£600',
+    blurb: 'For teams putting their first knowledge base behind one number.',
+    features: [
+      'WhatsApp assistant on your own manuals and protocols',
+      'Expert sign-off on every knowledge source',
+      'Human escalation with the conversation attached',
+      'Monthly question log',
+      'Email support',
+    ],
   },
   {
-    name: 'Website assistant, installed',
-    price: '£1,200',
-    blurb:
-      'Your manuals behind a chat widget on your own site, answering visitors from your material rather than a generic model.',
+    name: 'Growth',
+    price: '£1,350',
+    popular: true,
+    blurb: 'For businesses that want the enquiry side running on it too.',
+    features: [
+      'Everything in Starter',
+      'Website assistant on the same knowledge base',
+      'Lead scoring on fit and intent',
+      'CRM sync and real-time sales alerts',
+      'Website activity scoring',
+      'Priority support',
+      'Monthly performance review',
+    ],
   },
   {
-    name: 'Course or device manual',
-    price: '£950',
-    blurb:
-      'Forty to fifty-five pages, built to your brand, delivered as a finished PDF and editable source so your trainers can revise it without coming back to us.',
-  },
-  {
-    name: 'Brochure or price book set',
-    price: '£1,200',
-    blurb:
-      'Product brochures, distributor editions and price books that regenerate themselves when prices move, instead of being retyped.',
-  },
-  {
-    name: 'CRM audit and stage rebuild',
-    price: '£1,800',
-    blurb:
-      'What your pipeline is actually recording, followed by a clean stage model and every historical record migrated behind a safety net.',
-  },
-  {
-    name: 'Catalogue migration',
-    price: '£1,500',
-    blurb:
-      'Up to 200 products moved between platforms with currency conversion and images intact. Priced per 200.',
-  },
-  {
-    name: 'Captioned video or shorts pack',
-    price: '£650',
-    blurb:
-      'Training footage cut, captioned and brand-corrected, ready for your portal, your channel or your socials.',
+    name: 'Enterprise',
+    price: '£2,625',
+    blurb: 'For established operations running the full Mikora stack.',
+    features: [
+      'Everything in Growth',
+      'Unlimited lead sources',
+      'Custom integrations',
+      'Bespoke scoring rules',
+      'Spend intelligence',
+      'Dedicated account management',
+      'SLA guarantee',
+    ],
   },
 ];
 
-/** Website builds — projects too, but they have their own tiers. */
+/** Website builds — the one thing we do sell standalone. */
 export const SITE_TIERS = [
   {
     name: 'Starter Site',
@@ -89,30 +89,39 @@ export const SITE_TIERS = [
   },
 ];
 
-/** Section B — the flagship offer. */
-export const PILOT = {
-  build: '£1,200',
-  monthly: '£300',
-  term: '90 days',
-  features: [
-    'Your manuals, SOPs and training ingested and made searchable',
-    'Answers on your website and on WhatsApp, from the same knowledge',
-    'Every answer traceable to the document it came from',
-    'Anything risky escalated to a named human, with the conversation attached',
-    'Every question you were asked — including the ones nobody could answer',
-  ],
-};
+export const MAINTENANCE = '£500';
 
-/** Section C — ongoing work. A floor, deliberately no ceiling. */
-export const RETAINER = {
-  from: '£2,200',
-  features: [
-    'A named week of my time each month',
-    'Scoped in days, not deliverables',
-    'Knowledge, revenue operations and production in one place',
-    'Priority on anything already running',
-  ],
-};
-
-/** How many project slots open each month. Protects delivery capacity. */
-export const PROJECT_SLOTS = 'Two project slots a month.';
+/** Production work. Available to clients on a plan, quoted per piece.
+    Deliberately unpriced — this is not a menu to shop from. */
+export const PRODUCTION = [
+  {
+    name: 'Training and course manuals',
+    blurb:
+      'Forty to fifty-five pages, built to your brand, delivered as a finished PDF and editable source so your trainers can revise them in-house.',
+  },
+  {
+    name: 'Brochures and price books',
+    blurb:
+      'Product brochures, distributor editions and price books that regenerate themselves when prices move, instead of being retyped.',
+  },
+  {
+    name: 'Clinical and reference documents',
+    blurb:
+      'Wall charts, frequency tables, aftercare guides, consultation and inspection forms — the paper your practitioners actually use.',
+  },
+  {
+    name: 'Catalogue and platform migration',
+    blurb:
+      'Products moved between platforms with currency conversion and images intact, and the price book rebuilt behind them.',
+  },
+  {
+    name: 'Video, captions and channel work',
+    blurb:
+      'Training footage cut, captioned and brand-corrected, ready for your portal, your channel or your socials.',
+  },
+  {
+    name: 'Newsletters and campaigns',
+    blurb:
+      'Monthly newsletters produced as a designed deck and an HTML email, built to send from your own platform.',
+  },
+];
