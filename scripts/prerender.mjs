@@ -38,10 +38,10 @@ const { render } = await import(
   path.resolve('dist-ssr', 'entry-server.js')
 );
 
-function headTags(meta, route) {
+function headTags(meta, route, { canonical = true } = {}) {
   const url = meta.url || `${SITE_URL}${route === '/' ? '' : route}`;
   const tags = [
-    `<link rel="canonical" href="${esc(url)}" />`,
+    ...(canonical ? [`<link rel="canonical" href="${esc(url)}" />`] : []),
     `<meta name="robots" content="${meta.noindex ? 'noindex, nofollow' : 'index, follow'}" />`,
     `<meta property="og:site_name" content="Mikora Intelligence" />`,
     `<meta property="og:title" content="${esc(meta.title)}" />`,
@@ -71,26 +71,27 @@ function unhideAnimationInitialStates(html) {
   });
 }
 
+async function renderPage(route, options) {
+  const { html: rawHtml, meta } = await render(route);
+  const html = unhideAnimationInitialStates(rawHtml);
+  if (!meta.title || !meta.description) {
+    throw new Error(`route rendered without SEO meta`);
+  }
+
+  return template
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(meta.title)}</title>`)
+    .replace(
+      /<meta name="description" content="[^"]*" \/>/,
+      `<meta name="description" content="${esc(meta.description)}" />`
+    )
+    .replace('</head>', `    ${headTags(meta, route, options)}\n  </head>`)
+    .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+}
+
 let failures = 0;
 for (const route of routes) {
   try {
-    const { html: rawHtml, meta } = await render(route);
-    const html = unhideAnimationInitialStates(rawHtml);
-    if (!meta.title || !meta.description) {
-      throw new Error(`route rendered without SEO meta`);
-    }
-
-    let page = template
-      .replace(
-        /<title>[^<]*<\/title>/,
-        `<title>${esc(meta.title)}</title>`
-      )
-      .replace(
-        /<meta name="description" content="[^"]*" \/>/,
-        `<meta name="description" content="${esc(meta.description)}" />`
-      )
-      .replace('</head>', `    ${headTags(meta, route)}\n  </head>`)
-      .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+    const page = await renderPage(route);
 
     // Write <route>.html (not <route>/index.html): Cloudflare Pages serves
     // foo.html at /foo with a direct 200, whereas foo/index.html triggers a
@@ -112,4 +113,15 @@ for (const route of routes) {
 if (failures > 0) {
   throw new Error(`prerender: ${failures} route(s) failed`);
 }
+
+// Cloudflare Pages serves dist/404.html — with a real 404 status — for any
+// path it cannot match. Without it every unknown URL falls back to
+// index.html at 200, which search engines read as a soft 404. The route
+// below matches nothing in App.jsx, so it renders the catch-all NotFound
+// page; it is deliberately absent from routes.mjs so it stays out of the
+// sitemap, and it carries no canonical.
+const notFound = await renderPage('/__not-found', { canonical: false });
+await writeFile(path.join(DIST, '404.html'), notFound);
+console.log(`prerendered 404.html (${(notFound.length / 1024).toFixed(0)} kB)`);
+
 console.log(`prerender: ${routes.length} routes written`);
