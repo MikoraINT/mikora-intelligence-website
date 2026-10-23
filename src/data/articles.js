@@ -225,12 +225,12 @@ const articles = [
       },
       {
         type: 'ctaLink',
-        label: 'Run your own numbers in the ROI calculator',
-        to: '/capabilities/roi-calculator',
+        label: 'Work out what the delay is costing you',
+        to: '/request-consultation',
       },
       {
         type: 'p',
-        text: 'Put your own volume, close rate, and deal value through the model. Most operators are surprised — not that there is a leak, but at the size of it. The good news is that of all the problems in a sales operation, this is the most fixable. The curve is steep, but you get to choose where on it you sit.',
+        text: 'Most operators are surprised when they put their own volume, close rate and deal value against it — not that there is a leak, but at the size of it. The good news is that of all the problems in a sales operation, this is the most fixable. The curve is steep, but you get to choose where on it you sit.',
       },
     ],
   },
