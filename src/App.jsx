@@ -17,7 +17,10 @@ const Contact = lazy(() => import('./pages/Contact'));
 const About = lazy(() => import('./pages/About'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const CaseStudyPlasmaPen = lazy(() => import('./pages/CaseStudyPlasmaPen'));
+const CaseStudies = lazy(() => import('./pages/CaseStudies'));
+const CaseStudyWhatsAppSupport = lazy(() => import('./pages/CaseStudyWhatsAppSupport'));
+const CaseStudyLeadAttribution = lazy(() => import('./pages/CaseStudyLeadAttribution'));
+const CaseStudyProduction = lazy(() => import('./pages/CaseStudyProduction'));
 const SolutionAestheticDevices = lazy(() => import('./pages/SolutionAestheticDevices'));
 const SolutionTrainingAcademies = lazy(() => import('./pages/SolutionTrainingAcademies'));
 const SolutionAgencies = lazy(() => import('./pages/SolutionAgencies'));
@@ -98,7 +101,10 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/case-study/plasmapen" element={<CaseStudyPlasmaPen />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/case-studies/whatsapp-support" element={<CaseStudyWhatsAppSupport />} />
+                <Route path="/case-studies/lead-attribution" element={<CaseStudyLeadAttribution />} />
+                <Route path="/case-studies/production" element={<CaseStudyProduction />} />
                 <Route path="/solutions/aesthetic-devices" element={<SolutionAestheticDevices />} />
                 <Route path="/solutions/training-academies" element={<SolutionTrainingAcademies />} />
                 <Route path="/solutions/agencies" element={<SolutionAgencies />} />

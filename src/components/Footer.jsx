@@ -39,7 +39,7 @@ const COLUMNS = [
     title: 'Company',
     links: [
       { label: 'About', to: '/about' },
-      { label: 'Case Study', to: '/case-study/plasmapen' },
+      { label: 'Case Studies', to: '/case-studies' },
       { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },
       { label: 'Privacy', to: '/privacy' },

@@ -9,7 +9,9 @@ export const SITE_URL = 'https://mikoraintelligence.com';
 // catch-all.
 export const STATIC_ROUTES = [
   '/', '/platform', '/how-it-works', '/pricing', '/request-consultation',
-  '/contact', '/about', '/blog', '/case-study/plasmapen',
+  '/contact', '/about', '/blog', '/case-studies',
+  '/case-studies/whatsapp-support', '/case-studies/lead-attribution',
+  '/case-studies/production',
   '/solutions/aesthetic-devices', '/solutions/training-academies',
   '/solutions/agencies', '/capabilities/lead-scoring',
   '/capabilities/whatsapp-support', '/capabilities/crm-sync',

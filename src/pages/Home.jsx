@@ -4,6 +4,7 @@ import SEO from '../components/SEO';
 import JsonLd from '../components/JsonLd';
 import CTABanner from '../components/CTABanner';
 import { Reveal, Eyebrow } from '../components/ui';
+import { CaseStudyCard, CASE_STUDIES } from '../components/caseStudy';
 import {
   TargetIcon,
   CheckIcon,
@@ -230,32 +231,32 @@ function Hero() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Section 2 — Social proof strip                                      */
+/* Section 2 — Proof bar                                               */
 /* ------------------------------------------------------------------ */
 
-const CLIENT_TYPES = [
-  'Device Manufacturer',
-  'Training Academy',
-  'Marketing Agency',
-  'Franchise Network',
-  'Equipment Distributor',
+const PROOF_FIGURES = [
+  ['200', 'practitioners supported on one WhatsApp number'],
+  ['10,939', 'leads restaged into a rebuilt pipeline'],
+  ['18 months', 'inside one business, across ten workstreams'],
 ];
 
-function SocialProofStrip() {
+function ProofBar() {
   return (
     <section className="border-y border-border bg-surface">
       <div className="mx-auto max-w-7xl px-6 py-14">
         <Reveal>
           <p className="text-center text-small text-muted">
-            Trusted by operators who demand results
+            Delivered, not promised
           </p>
-          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-5">
-            {CLIENT_TYPES.map((label) => (
-              <li
-                key={label}
-                className="font-heading text-base font-semibold tracking-wide text-muted"
-              >
-                {label}
+          <ul className="mt-9 grid gap-8 sm:grid-cols-3">
+            {PROOF_FIGURES.map(([value, label]) => (
+              <li key={label} className="text-center">
+                <p className="font-heading text-h2 font-bold leading-none text-gold">
+                  {value}
+                </p>
+                <p className="mx-auto mt-3 max-w-[15rem] text-small text-muted">
+                  {label}
+                </p>
               </li>
             ))}
           </ul>
@@ -550,57 +551,39 @@ function HowItWorksPreview() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Section 6 — Case study strip                                        */
+/* Section 6 — Case studies                                            */
 /* ------------------------------------------------------------------ */
 
-const CASE_METRICS = [
-  ['200+', 'Technicians Live'],
-  ['24/7', 'Instant Answers'],
-  ['Seconds', 'To First Response'],
-  ['9,600+', 'Leads Scored'],
-];
-
-function CaseStudyStrip() {
+function CaseStudiesStrip() {
   return (
     <section className="bg-background">
       <div className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
-        <Reveal>
-          <div className="rounded-2xl border border-border border-l-4 border-l-gold bg-surface p-8 md:p-12">
-            <div className="max-w-2xl">
-              <Eyebrow>Case Study</Eyebrow>
-              <h2 className="font-heading text-h2 font-bold text-white">
-                200 practitioners. One WhatsApp number.
-              </h2>
-              <p className="mt-4 text-body text-muted">
-                Proof from one industry: a global aesthetic device brand put
-                its training knowledge behind a single WhatsApp number.
-                Technicians get verified answers in seconds, clinical
-                questions escalate to trainers automatically — and the same
-                platform has scored 9,600+ leads for the sales team.
-              </p>
-            </div>
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <Eyebrow>Case Studies</Eyebrow>
+          <h2 className="font-heading text-h2 font-bold text-white md:text-h1">
+            Eighteen months inside one business
+          </h2>
+          <p className="mt-5 text-body text-muted">
+            A global aesthetic device brand: the support system, the revenue
+            operations behind it, and the work that arrived once both were
+            running.
+          </p>
+        </Reveal>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {CASE_METRICS.map(([value, label]) => (
-                <div
-                  key={label}
-                  className="rounded-xl border border-border bg-background p-5"
-                >
-                  <p className="font-heading text-h3 font-bold text-gold md:text-h2">
-                    {value}
-                  </p>
-                  <p className="mt-1 text-small text-muted">{label}</p>
-                </div>
-              ))}
-            </div>
+        <div className="mt-14 grid items-stretch gap-5 md:grid-cols-3">
+          {CASE_STUDIES.map((cs, i) => (
+            <CaseStudyCard key={cs.to} {...cs} delay={i * 0.1} />
+          ))}
+        </div>
 
-            <Link
-              to="/case-study/plasmapen"
-              className="mt-10 inline-block rounded-full bg-gold px-7 py-3.5 text-small font-semibold text-background transition-colors hover:bg-goldLight"
-            >
-              Read the Case Study
-            </Link>
-          </div>
+        <Reveal className="mt-12 text-center">
+          <Link
+            to="/case-studies"
+            className="group inline-flex items-center gap-2 text-body font-medium text-gold transition-colors hover:text-goldLight"
+          >
+            See all case studies
+            <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </Reveal>
       </div>
     </section>
@@ -694,12 +677,12 @@ export default function Home() {
         }}
       />
       <Hero />
-      <SocialProofStrip />
+      <ProofBar />
       <Problem />
       <Solution />
       <WhoItsForStrip />
       <HowItWorksPreview />
-      <CaseStudyStrip />
+      <CaseStudiesStrip />
       <SolutionsStrip />
       <CTABanner />
     </>
