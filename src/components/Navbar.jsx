@@ -15,7 +15,6 @@ const CAPABILITIES = [
   { label: 'Lead Scoring', to: '/capabilities/lead-scoring' },
   { label: 'CRM Sync', to: '/capabilities/crm-sync' },
   { label: 'Ad Spend Tracking', to: '/capabilities/ad-spend-tracking' },
-  { label: 'ROI Calculator', to: '/capabilities/roi-calculator' },
   { label: 'Sales Alerts', to: '/capabilities/sales-alerts' },
   { label: 'Website Assistant', to: '/capabilities/website-assistant' },
   { label: 'Website Activity Scoring', to: '/capabilities/website-activity-scoring' },

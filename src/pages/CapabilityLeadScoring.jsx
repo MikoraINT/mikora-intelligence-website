@@ -53,7 +53,7 @@ export default function CapabilityLeadScoring() {
       related={[
         { title: 'Sales Alerts', to: '/capabilities/sales-alerts' },
         { title: 'CRM Sync', to: '/capabilities/crm-sync' },
-        { title: 'ROI Calculator', to: '/capabilities/roi-calculator' },
+        { title: 'Website Activity Scoring', to: '/capabilities/website-activity-scoring' },
       ]}
     />
   );

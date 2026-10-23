@@ -15,7 +15,7 @@ export const STATIC_ROUTES = [
   '/solutions/aesthetic-devices', '/solutions/training-academies',
   '/solutions/agencies', '/capabilities/lead-scoring',
   '/capabilities/whatsapp-support', '/capabilities/crm-sync',
-  '/capabilities/ad-spend-tracking', '/capabilities/roi-calculator',
+  '/capabilities/ad-spend-tracking',
   '/capabilities/sales-alerts', '/capabilities/website-assistant',
   '/capabilities/website-activity-scoring', '/capabilities/website-build',
   '/privacy', '/terms',

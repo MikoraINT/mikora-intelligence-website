@@ -11,7 +11,6 @@ import {
   ChatIcon,
   BrowserIcon,
   ChartIcon,
-  CalculatorIcon,
   CodeIcon,
   BookIcon,
   CursorIcon,
@@ -25,7 +24,6 @@ const RELATED_ICONS = {
   'Website Assistant': BrowserIcon,
   'Website Activity Scoring': CursorIcon,
   'Ad Spend Tracking': ChartIcon,
-  'ROI Calculator': CalculatorIcon,
   'Website Build': CodeIcon,
   'Training Academies': BookIcon,
 };

@@ -28,7 +28,6 @@ const CapabilityLeadScoring = lazy(() => import('./pages/CapabilityLeadScoring')
 const CapabilityWhatsAppSupport = lazy(() => import('./pages/CapabilityWhatsAppSupport'));
 const CapabilityCRMSync = lazy(() => import('./pages/CapabilityCRMSync'));
 const CapabilityAdSpendTracking = lazy(() => import('./pages/CapabilityAdSpendTracking'));
-const CapabilityROICalculator = lazy(() => import('./pages/CapabilityROICalculator'));
 const CapabilitySalesAlerts = lazy(() => import('./pages/CapabilitySalesAlerts'));
 const CapabilityWebsiteAssistant = lazy(() => import('./pages/CapabilityWebsiteAssistant'));
 const CapabilityWebsiteActivityScoring = lazy(() => import('./pages/CapabilityWebsiteActivityScoring'));
@@ -112,7 +111,6 @@ export default function App() {
                 <Route path="/capabilities/whatsapp-support" element={<CapabilityWhatsAppSupport />} />
                 <Route path="/capabilities/crm-sync" element={<CapabilityCRMSync />} />
                 <Route path="/capabilities/ad-spend-tracking" element={<CapabilityAdSpendTracking />} />
-                <Route path="/capabilities/roi-calculator" element={<CapabilityROICalculator />} />
                 <Route path="/capabilities/sales-alerts" element={<CapabilitySalesAlerts />} />
                 <Route path="/capabilities/website-assistant" element={<CapabilityWebsiteAssistant />} />
                 <Route path="/capabilities/website-activity-scoring" element={<CapabilityWebsiteActivityScoring />} />

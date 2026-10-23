@@ -55,7 +55,7 @@ export default function CapabilityAdSpendTracking() {
       related={[
         { title: 'Lead Scoring', to: '/capabilities/lead-scoring' },
         { title: 'CRM Sync', to: '/capabilities/crm-sync' },
-        { title: 'ROI Calculator', to: '/capabilities/roi-calculator' },
+        { title: 'Website Assistant', to: '/capabilities/website-assistant' },
       ]}
     />
   );
