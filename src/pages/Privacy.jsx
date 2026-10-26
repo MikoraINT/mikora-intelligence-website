@@ -17,7 +17,7 @@ const SECTIONS = [
   {
     heading: 'What data we collect',
     paragraphs: [
-      'We collect the information you choose to give us through this website. The consultation form collects your name, company name, company website, email address, phone number, what you need help with, your monthly ad spend range, and anything you tell us about your current setup. The contact form collects your name, email address, and message.',
+      'We collect the information you choose to give us through this website. The consultation form collects your name, company name, company website, email address, phone number, what you need help with, and anything you tell us about your current setup. The contact form collects your name, email address, and message.',
       'We also collect limited technical information necessary to operate the website, such as server logs generated when pages are requested.',
     ],
   },
