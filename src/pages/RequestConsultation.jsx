@@ -17,20 +17,12 @@ import {
 const WEBHOOK_URL = import.meta.env.VITE_CONSULTATION_WEBHOOK_URL;
 
 const HELP_OPTIONS = [
-  'Intelligent Lead Scoring',
-  'WhatsApp Support Intelligence',
-  'CRM Sync and Automation',
-  'Website Build',
-  'Full Mikora Platform',
-  'Not Sure Yet',
-];
-
-const SPEND_OPTIONS = [
-  'Under £1,000',
-  '£1,000 to £5,000',
-  '£5,000 to £15,000',
-  '£15,000 plus',
-  'Not currently running ads',
+  'My team answers the same questions over and over',
+  'Enquiries arrive out of hours and go cold',
+  'I cannot tell which marketing produces deals',
+  'I need a website that captures and scores leads',
+  'Manuals, brochures or content production',
+  'Not sure yet',
 ];
 
 const INITIAL_FORM = {
@@ -40,7 +32,6 @@ const INITIAL_FORM = {
   email: '',
   phone: '',
   help_with: '',
-  monthly_ad_spend: '',
   current_setup: '',
 };
 
@@ -256,37 +247,13 @@ function ConsultationForm() {
             </div>
 
             <div>
-              <Label htmlFor="monthly_ad_spend">Monthly ad spend</Label>
-              <div className="relative">
-                <select
-                  id="monthly_ad_spend"
-                  value={form.monthly_ad_spend}
-                  onChange={set('monthly_ad_spend')}
-                  className={`${selectClasses} border-border ${
-                    form.monthly_ad_spend ? 'text-white' : 'text-muted/85'
-                  }`}
-                >
-                  <option value="" disabled>
-                    Select an option
-                  </option>
-                  {SPEND_OPTIONS.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
-                </select>
-                <SelectArrow />
-              </div>
-            </div>
-
-            <div>
               <Label htmlFor="current_setup">
                 Tell us about your current setup
               </Label>
               <textarea
                 id="current_setup"
                 rows={4}
-                placeholder="What tools are you using today and what is not working"
+                placeholder="Who answers questions today, what they get asked most, and what is not working"
                 value={form.current_setup}
                 onChange={set('current_setup')}
                 className={`${inputClasses} border-border resize-y`}
@@ -323,16 +290,16 @@ function ConsultationForm() {
 
 const EXPECT_ITEMS = [
   {
-    lead: 'We review your current lead flow',
-    rest: '— where leads come from, where they go, and where they get lost.',
+    lead: 'We look at how answers reach people today',
+    rest: '— who gets asked, what they get asked most, and what happens after hours.',
   },
   {
-    lead: 'We show you Mikora live',
-    rest: '— real scoring, real alerts, real CRM sync, using examples relevant to your business.',
+    lead: 'We show you the system running',
+    rest: '— a real assistant answering from real documents, using examples relevant to your business.',
   },
   {
-    lead: 'You get a clear recommendation',
-    rest: '— whether Mikora fits, what it would cost, and what results to expect. No hard sell.',
+    lead: 'You get a straight recommendation',
+    rest: '— whether this fits, what it would cost, and what it would not fix. No hard sell.',
   },
 ];
 
@@ -373,13 +340,13 @@ export default function RequestConsultation() {
     <>
       <SEO
         title="Request a Consultation — Mikora Intelligence"
-        description="Book a free 30 minute consultation. We map your lead operation and show you exactly what Mikora would look like for your business."
+        description="Book a free 30 minute call. We look at how your team and customers get answers today, where that breaks, and whether Mikora is worth your money."
         canonical="https://mikoraintelligence.com/request-consultation"
       />
       <PageHero
         eyebrow="Consultation"
-        title="Let's map your lead operation"
-        subtitle="A free 30 minute consultation. We look at your current setup, show you exactly where leads are slipping through, and map what Mikora would look like for your business. No pressure, no obligation."
+        title="Thirty minutes, and a straight answer"
+        subtitle="A free consultation. We look at how your team and your customers get answers today, where that breaks, and what it would take to fix. If Mikora is not the right thing for you, we will say so."
       />
       <section className="bg-background">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 pb-24 md:pb-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
