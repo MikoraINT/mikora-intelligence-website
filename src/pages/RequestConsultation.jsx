@@ -21,6 +21,7 @@ const HELP_OPTIONS = [
   'Enquiries arrive out of hours and go cold',
   'I cannot tell which marketing produces deals',
   'I need a website that captures and scores leads',
+  'I’m moving products or content to a new platform',
   'Manuals, brochures or content production',
   'Not sure yet',
 ];
